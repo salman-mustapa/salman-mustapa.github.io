@@ -1,306 +1,685 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Salman Mustapa">
-    <meta name="description" content="Portfolio Salman Mustapa - Backend Developer, Networking, Linux, Laravel, Bootstrap, MySQL, SysAdmin">
-    <meta name="keywords" content="Salman Mustapa, Backend Developer, Laravel, Networking, Linux, Bootstrap, MySQL, SysAdmin, Portfolio">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Salman Mustapa" />
+    <meta
+      name="description"
+      content="Portfolio Salman Mustapa - Backend Developer, Networking, Linux, Laravel, Bootstrap, MySQL, SysAdmin"
+    />
+    <meta
+      name="keywords"
+      content="Salman Mustapa, Backend Developer, Laravel, Networking, Linux, Bootstrap, MySQL, SysAdmin, Portfolio"
+    />
     <title>Salman Mustapa</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Flowbite CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css"
+      rel="stylesheet"
+    />
     <!-- Font Awesome for Icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      rel="stylesheet"
+    />
     <!-- Google Fonts (Quicksand) -->
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
     <!-- AOS for Animations -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/style.css">
-</head>
-<body>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body>
     <!-- Navbar (Desktop) -->
     <nav class="navbar-top fixed top-0 left-0 right-0 z-50">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="https://salman-mustapa.github.io" class="text-2xl font-bold text-blue-500">Salman Mustapa</a>
-            <div class="hidden md:flex space-x-4">
-                <a href="#about" class="nav-link text-gray-800 hover:text-blue-500 flex items-center"><i class="fas fa-home mr-2"></i>Tentang</a>
-                <a href="#skills" class="nav-link text-gray-800 hover:text-blue-500 flex items-center"><i class="fas fa-laptop-code mr-2"></i>Keahlian</a>
-                <a href="#experience" class="nav-link text-gray-800 hover:text-blue-500 flex items-center"><i class="fas fa-briefcase mr-2"></i>Pengalaman</a>
-                <a href="#education" class="nav-link text-gray-800 hover:text-blue-500 flex items-center"><i class="fas fa-graduation-cap mr-2"></i>Pendidikan</a>
-                <a href="#projects" class="nav-link text-gray-800 hover:text-blue-500 flex items-center"><i class="fas fa-folder-open mr-2"></i>Proyek</a>
-                <a href="#certificate" class="nav-link text-gray-800 hover:text-blue-500 flex items-center"><i class="fas fa-file mr-2"></i>Sertifikasi</a>
-            </div>
+      <div
+        class="container mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <a
+          href="https://salman-mustapa.github.io"
+          class="text-2xl font-bold text-blue-500"
+          >Salman Mustapa</a
+        >
+        <div class="hidden md:flex space-x-4">
+          <a
+            href="#about"
+            class="nav-link text-gray-800 hover:text-blue-500 flex items-center"
+            ><i class="fas fa-home mr-2"></i>Tentang</a
+          >
+          <a
+            href="#skills"
+            class="nav-link text-gray-800 hover:text-blue-500 flex items-center"
+            ><i class="fas fa-laptop-code mr-2"></i>Keahlian</a
+          >
+          <a
+            href="#experience"
+            class="nav-link text-gray-800 hover:text-blue-500 flex items-center"
+            ><i class="fas fa-briefcase mr-2"></i>Pengalaman</a
+          >
+          <a
+            href="#education"
+            class="nav-link text-gray-800 hover:text-blue-500 flex items-center"
+            ><i class="fas fa-graduation-cap mr-2"></i>Pendidikan</a
+          >
+          <a
+            href="#projects"
+            class="nav-link text-gray-800 hover:text-blue-500 flex items-center"
+            ><i class="fas fa-folder-open mr-2"></i>Proyek</a
+          >
+          <a
+            href="#certificate"
+            class="nav-link text-gray-800 hover:text-blue-500 flex items-center"
+            ><i class="fas fa-file mr-2"></i>Sertifikasi</a
+          >
         </div>
+      </div>
     </nav>
 
-    <!-- Navbar (Mobile Bottom) -->
-    <nav class="navbar-bottom">
-        <div class="container mx-auto px-4"> <!-- Reduced padding -->
-            <div class="flex justify-around gap-1"> <!-- Added gap between icons -->
-                <a href="#about" class="nav-link"><i class="fas fa-home"></i><span>Tentang</span></a>
-                <a href="#skills" class="nav-link"><i class="fas fa-laptop-code"></i><span>Keahlian</span></a>
-                <a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i><span>Pengalaman</span></a>
-                <a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i><span>Pendidikan</span></a>
-                <a href="#projects" class="nav-link"><i class="fas fa-folder-open"></i><span>Proyek</span></a>
-                <a href="#certificate" class="nav-link"><i class="fas fa-file"></i><span>Sertifikasi</span></a>
-            </div>
-        </div>
+    <!-- Navbar Bottom (Mobile Only) -->
+    <nav
+      class="navbar-bottom fixed bottom-0 left-0 right-0 bg-white shadow-md border-t z-50 block md:hidden"
+    >
+      <div class="flex justify-around items-center h-14">
+        <a
+          href="#about"
+          class="nav-link flex flex-col items-center text-gray-600 text-xs"
+        >
+          <i class="fas fa-home text-lg"></i>
+          <span class="text-[10px]">Tentang</span>
+        </a>
+        <a
+          href="#skills"
+          class="nav-link flex flex-col items-center text-gray-600 text-xs"
+        >
+          <i class="fas fa-laptop-code text-lg"></i>
+          <span class="text-[10px]">Keahlian</span>
+        </a>
+        <a
+          href="#experience"
+          class="nav-link flex flex-col items-center text-gray-600 text-xs"
+        >
+          <i class="fas fa-briefcase text-lg"></i>
+          <span class="text-[10px]">Pengalaman</span>
+        </a>
+        <a
+          href="#education"
+          class="nav-link flex flex-col items-center text-gray-600 text-xs"
+        >
+          <i class="fas fa-graduation-cap text-lg"></i>
+          <span class="text-[10px]">Pendidikan</span>
+        </a>
+        <a
+          href="#projects"
+          class="nav-link flex flex-col items-center text-gray-600 text-xs"
+        >
+          <i class="fas fa-folder-open text-lg"></i>
+          <span class="text-[10px]">Proyek</span>
+        </a>
+        <a
+          href="#certificate"
+          class="nav-link flex flex-col items-center text-gray-600 text-xs"
+        >
+          <i class="fas fa-file text-lg"></i>
+          <span class="text-[10px]">Sertifikasi</span>
+        </a>
+      </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero py-24">
-        <!-- <div class="container mx-auto px-4 text-center" data-aos="fade-up"> -->
-            <div class="container max-w-6xl mx-auto px-6 lg:px-12 text-center" data-aos="fade-up">
-            <!-- <img src="PashPhoto_Kuliah_3x4.jpeg" alt="Profile Picture" class="profile-picture rounded border-2 border-white mx-auto mb-6 md:w-32" data-aos="zoom-in" data-aos-delay="200"> -->
-            <h1 class="text-4xl md:text-5xl font-bold">Halo, Saya Salman</h1>
-            <p class="text-lg md:text-xl mt-2">Tertarik dengan Programming & Networking | Pengguna Sistem Operasi Linux</p>
-            <a href="#contact" class="mt-6 inline-block bg-white text-blue-600 font-semibold py-3 px-6 rounded-lg hover:bg-blue-100 transition">Hubungi Saya</a>
-        </div>
+      <!-- <div class="container mx-auto px-4 text-center" data-aos="fade-up"> -->
+      <div
+        class="container max-w-6xl mx-auto px-6 lg:px-12 text-center"
+        data-aos="fade-up"
+      >
+        <h1 class="text-4xl md:text-5xl font-bold">Halo, Saya Salman</h1>
+        <p class="text-lg md:text-xl mt-2">
+          Tertarik dengan Programming & Networking | Pengguna Sistem Operasi
+          Linux
+        </p>
+        <a
+          href="#contact"
+          class="mt-6 inline-block bg-white text-blue-600 font-semibold py-3 px-6 rounded-lg hover:bg-blue-100 transition"
+          >Hubungi Saya</a
+        >
+      </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="py-16">
-        <!-- <div class="container mx-auto px-4"> -->
-        <div class="container max-w-6xl mx-auto px-6 lg:px-12">
-
-            <h2 class="section-title text-3xl font-bold text-blue-600 mb-8" data-aos="fade-up">Tentang Saya</h2>
-            <div class="mx-auto bg-white p-6 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="100">
-                <div class="text-gray-600 text-justify">
-                    <p>Saya seorang Backend Developer dengan pengalaman lebih dari 3 Tahun dalam membangun aplikasi web yang skalabel dan efisien menggunakan Laravel, Bootstrap, dan MySQL/Mariadb.</p>
-                    <p class="mt-2">Networking juga menjadi salah satu keahlian saya yang telah berkecimpung di dunia jaringan lebih dari 5 tahun menggunakan cisco, dan mikrotik.</p>
-                    <p class="mt-2">Sistem Operasi Linux menjadi pondasi saya dalam mempelajari hal hal baru, dan ingin mengembangkan sebuah sistem yang mampu memantau, menganalisis, serta melindungi dari serangan hacker.</p>
-                    <p class="mt-2">Selain pengalaman saya juga dibekali dengan sertifikasi dan penghargaan yang telah saya ikuti, mulai dari programming, networking, cyber security dan sysadmin.</p>
-                    <p class="mt-2">Selain keahlian teknis, saya juga terampil dalam kolaborasi tim, manajemen proyek, dan komunikasi dengan klien untuk memastikan solusi yang dikembangkan sesuai dengan kebutuhan bisnis.</p>
-                </div>
-                <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    <p><i class="fas fa-envelope mr-2 text-blue-600"></i> <a href="mailto:salmanmustapa@outlook.com">salmanmustapa@outlook.com</a></p>
-                    <p><i class="fas fa-globe mr-2 text-blue-600"></i> <a href="https://salman-mustapa.github.io" target="_blank">Salman Mustapa</a></p>
-                    <p><i class="fab fa-linkedin mr-2 text-blue-600"></i> <a href="https://www.linkedin.com/in/salman-mustapa-0b4997284/" target="_blank">Salman Mustapa</a></p>
-                    <p><i class="fab fa-github mr-2 text-blue-600"></i> <a href="https://github.com/salman-mustapa" target="_blank">github.com/salman-mustapa</a></p>
-                    <p><i class="fas fa-phone mr-2 text-blue-600"></i> <a href="wa.me/6282154488769">+62 821-5448-8769</a></p>
-                </div>
-            </div>
+      <!-- <div class="container mx-auto px-4"> -->
+      <div class="container max-w-6xl mx-auto px-6 lg:px-12">
+        <h2
+          class="section-title text-3xl font-bold text-blue-600 mb-8"
+          data-aos="fade-up"
+        >
+          Tentang Saya
+        </h2>
+        <div
+          class="mx-auto bg-white p-6 rounded-xl shadow-lg"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <div class="text-gray-600 text-justify">
+            <p>
+              Saya seorang Backend Developer dengan pengalaman lebih dari 3
+              Tahun dalam membangun aplikasi web yang skalabel dan efisien
+              menggunakan Laravel, Bootstrap, dan MySQL/Mariadb.
+            </p>
+            <p class="mt-2">
+              Networking juga menjadi salah satu keahlian saya, dimana saya
+              telah berkecimpung di dunia networking lebih dari 5 tahun
+              menggunakan cisco, dan mikrotik.
+            </p>
+            <p class="mt-2">
+              Sistem Operasi Linux menjadi pondasi saya dalam mempelajari hal
+              hal baru, dan ingin mengembangkan sebuah sistem yang mampu
+              memantau, menganalisis, serta melindungi dari serangan hacker.
+            </p>
+            <p class="mt-2">
+              Selain pengalaman, saya juga dibekali dengan sertifikasi dan
+              penghargaan yang telah saya ikuti, mulai dari programming,
+              networking, cyber security dan sysadmin.
+            </p>
+            <p class="mt-2">
+              Selain keahlian teknis, saya juga terampil dalam kolaborasi tim,
+              manajemen proyek, dan komunikasi dengan klien untuk memastikan
+              solusi yang dikembangkan sesuai dengan kebutuhan bisnis.
+            </p>
+          </div>
+          <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <p>
+              <i class="fas fa-envelope mr-2 text-blue-600"></i>
+              <a href="mailto:salmanmustapa@outlook.com"
+                >salmanmustapa@outlook.com</a
+              >
+            </p>
+            <p>
+              <i class="fas fa-globe mr-2 text-blue-600"></i>
+              <a href="https://salman-mustapa.github.io" target="_blank"
+                >Salman Mustapa</a
+              >
+            </p>
+            <p>
+              <i class="fab fa-linkedin mr-2 text-blue-600"></i>
+              <a
+                href="https://www.linkedin.com/in/salman-mustapa-0b4997284/"
+                target="_blank"
+                >Salman Mustapa</a
+              >
+            </p>
+            <p>
+              <i class="fab fa-github mr-2 text-blue-600"></i>
+              <a href="https://github.com/salman-mustapa" target="_blank"
+                >github.com/salman-mustapa</a
+              >
+            </p>
+            <p>
+              <i class="fas fa-phone mr-2 text-blue-600"></i>
+              <a href="wa.me/6282154488769">+62 821-5448-8769</a>
+            </p>
+            <p>
+              <i class="fas fa-file mr-2 text-blue-600"></i>
+              <a
+                href="#"
+                data-modal-target="download-modal"
+                data-modal-toggle="download-modal"
+                class="hover:underline"
+              >
+                Portofolio
+              </a>
+            </p>
+          </div>
         </div>
+      </div>
+      <!-- Modal -->
+      <div
+        id="download-modal"
+        tabindex="-1"
+        aria-hidden="true"
+        class="hidden fixed inset-0 z-50 flex items-center p-4 justify-center bg-black bg-opacity-50"
+      >
+        <div class="bg-white rounded-lg shadow-lg max-w-md w-full p-6 relative">
+          <!-- Tombol close -->
+          <button
+            type="button"
+            class="absolute top-3 right-3 text-gray-400 hover:text-gray-600"
+            data-modal-hide="download-modal"
+          >
+            ✕
+          </button>
+
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">Download</h3>
+          <p class="text-gray-600 mb-6">
+            Silakan pilih dokumen yang ingin dilihat:
+          </p>
+
+          <div class="flex flex-col space-y-3">
+            <a
+              href="assets/portofolio.pdf"
+              download
+              class="w-full text-center bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition"
+            >
+              Download Portofolio
+            </a>
+            <a
+              href="assets/cv.pdf"
+              download
+              class="w-full text-center bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition"
+            >
+              Download CV
+            </a>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Skills Section -->
     <section id="skills" class="py-16 bg-gray-100">
-        <!-- <div class="container mx-auto px-4"> -->
-        <div class="container max-w-6xl mx-auto px-6 lg:px-12">
-
-            <h2 class="section-title text-3xl font-bold text-blue-600 mb-8" data-aos="fade-up">Keahlian</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform" data-aos="fade-up" data-aos-delay="100">
-                    <i class="fab fa-laravel fa-2x text-blue-600 mb-4"></i>
-                    <h3 class="text-xl font-semibold">Laravel</h3>
-                    <p class="text-gray-600">Pengembangan aplikasi fullstack menggunakan Laravel, termasuk Eloquent ORM, Blade templating, RESTful API, dan autentikasi.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform" data-aos="fade-up" data-aos-delay="100">
-                    <i class="fab fa-android fa-2x text-blue-600 mb-4"></i>
-                    <h3 class="text-xl font-semibold">Kotlin</h3>
-                    <p class="text-gray-600">Pengembangan aplikasi android menggunakan kotlin dan support integrasi API dan authentikasi</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform" data-aos="fade-up" data-aos-delay="200">
-                    <i class="fab fa-bootstrap fa-2x text-blue-600 mb-4"></i>
-                    <h3 class="text-xl font-semibold">Bootstrap</h3>
-                    <p class="text-gray-600">Membangun antarmuka pengguna yang responsif dan modern dengan Bootstrap untuk pengalaman pengguna yang konsisten.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform" data-aos="fade-up" data-aos-delay="300">
-                    <i class="fas fa-database fa-2x text-blue-600 mb-4"></i>
-                    <h3 class="text-xl font-semibold">MySQL / MariaDB</h3>
-                    <p class="text-gray-600">Desain dan pengelolaan database relasional dengan MySQL untuk mendukung aplikasi berperforma tinggi.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform" data-aos="fade-up" data-aos-delay="300">
-                    <i class="fas fa-network-wired fa-2x text-blue-600 mb-4"></i>
-                    <h3 class="text-xl font-semibold">Networking</h3>
-                    <p class="text-gray-600">Pengelolaan infrastruktur jaringan dan instalasi perangkat jaringan Mikrotik dan Cisco</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform" data-aos="fade-up" data-aos-delay="300">
-                    <i class="fas fa-server fa-2x text-blue-600 mb-4"></i>
-                    <h3 class="text-xl font-semibold">SysAdmin</h3>
-                    <p class="text-gray-600">System Adminstrasi Server Menggunakan Sistem Operasi Linux</p>
-                </div>
-            </div>
+      <!-- <div class="container mx-auto px-4"> -->
+      <div class="container max-w-6xl mx-auto px-6 lg:px-12">
+        <h2
+          class="section-title text-3xl font-bold text-blue-600 mb-8"
+          data-aos="fade-up"
+        >
+          Keahlian
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div
+            class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <i class="fab fa-laravel fa-2x text-blue-600 mb-4"></i>
+            <h3 class="text-xl font-semibold">Laravel</h3>
+            <p class="text-gray-600">
+              Pengembangan aplikasi fullstack menggunakan Laravel, termasuk
+              Eloquent ORM, Blade templating, RESTful API, dan autentikasi.
+            </p>
+          </div>
+          <div
+            class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <i class="fab fa-android fa-2x text-blue-600 mb-4"></i>
+            <h3 class="text-xl font-semibold">Kotlin</h3>
+            <p class="text-gray-600">
+              Pengembangan aplikasi android menggunakan kotlin dan support
+              integrasi API dan authentikasi
+            </p>
+          </div>
+          <div
+            class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <i class="fab fa-bootstrap fa-2x text-blue-600 mb-4"></i>
+            <h3 class="text-xl font-semibold">Bootstrap</h3>
+            <p class="text-gray-600">
+              Membangun antarmuka pengguna yang responsif dan modern dengan
+              Bootstrap untuk pengalaman pengguna yang konsisten.
+            </p>
+          </div>
+          <div
+            class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <i class="fas fa-database fa-2x text-blue-600 mb-4"></i>
+            <h3 class="text-xl font-semibold">MySQL / MariaDB</h3>
+            <p class="text-gray-600">
+              Desain dan pengelolaan database relasional dengan MySQL untuk
+              mendukung aplikasi berperforma tinggi.
+            </p>
+          </div>
+          <div
+            class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <i class="fas fa-network-wired fa-2x text-blue-600 mb-4"></i>
+            <h3 class="text-xl font-semibold">Networking</h3>
+            <p class="text-gray-600">
+              Pengelolaan infrastruktur jaringan dan instalasi perangkat
+              jaringan Mikrotik dan Cisco
+            </p>
+          </div>
+          <div
+            class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <i class="fas fa-server fa-2x text-blue-600 mb-4"></i>
+            <h3 class="text-xl font-semibold">SysAdmin</h3>
+            <p class="text-gray-600">
+              System Adminstrasi Server Menggunakan Sistem Operasi Linux
+            </p>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Experience Section (List View with Animation) -->
     <section id="experience" class="py-16">
-        <!-- <div class="container mx-auto px-4"> -->
-            <div class="container max-w-6xl mx-auto px-6 lg:px-12">
+      <div class="container max-w-6xl mx-auto px-6 lg:px-12">
+        <h2
+          class="section-title text-3xl font-bold text-blue-600 mb-8"
+          data-aos="fade-up"
+        >
+          Pengalaman
+        </h2>
 
-            <h2 class="section-title text-3xl font-bold text-blue-600 mb-8" data-aos="fade-up">Pengalaman</h2>
-            <div class="max-w-3xl mx-auto">
-                <div class="experience-item bg-white p-6 rounded-xl shadow-lg" data-aos="fade-right" data-aos-delay="100">
-                    <h3 class="text-xl font-semibold">IT Networking - Dinas Kominfo Kabupaten Bonebolango</h3>
-                    <p class="text-gray-500">Januari 2022 - Desember 2024</p>
-                    <p class="text-gray-600 mt-2">Dikominfo saya bertanggung jawab penuh dalam pengelolaan perangkat Jarinagan dan CCTV, mulai dari instalasi mikrotik, kemudian melakukan instalasi cctv, dan melakukan monitoring terhadap trafic jaringan serta melakukan maintenance perangkat jaringan yang ada di Organisasi Perangkat Daerah (OPD) Kabupaten Bonebolango Provinsi Bonebolango. <br>Contact: Kepala Bidang Kominfo (Pak Hendra Lahay - <a href="https://wa.me/6285240260204?text=apakah%20benar%20salman%20adalah%20mantan%20IT%20Networking%20di%20Dinas%20Kominfo%20Kabupaten%20Bonebolango%3F
-">+62 852 4026 0204</a></p>
-                </div>
-                <div class="experience-item bg-white p-6 rounded-xl shadow-lg" data-aos="fade-right" data-aos-delay="200">
-                    <h3 class="text-xl font-semibold">Junior Developer - [Nama Perusahaan]</h3>
-                    <p class="text-gray-500">Juni 2021 - Desember 2022</p>
-                    <p class="text-gray-600 mt-2">Mendukung pengembangan fitur baru untuk aplikasi web berbasis Laravel, termasuk autentikasi pengguna dan manajemen data pelanggan.</p>
-                </div>
+        <div class="max-w-3xl mx-auto">
+          <!-- Pengalaman 1 -->
+          <div
+            class="experience-item bg-white p-6 rounded-xl shadow-lg mb-6"
+            data-aos="fade-right"
+            data-aos-delay="100"
+          >
+            <h3 class="text-xl font-semibold">
+              IT Networking - Dinas Kominfo Kabupaten Bonebolango
+            </h3>
+            <p class="text-gray-500">Januari 2022 - Desember 2024</p>
+
+            <ul class="list-disc list-inside text-gray-600 mt-3 space-y-1">
+              <li>
+                Instalasi dan konfigurasi perangkat jaringan (Mikrotik, Switch,
+                Router)
+              </li>
+              <li>Instalasi & konfigurasi CCTV untuk OPD</li>
+              <li>Monitoring trafik jaringan antar-OPD</li>
+              <li>Maintenance perangkat jaringan secara berkala</li>
+            </ul>
+
+            <!-- Contact yang bisa dihubungi -->
+            <div
+              class="mt-4 bg-gray-50 border rounded-lg p-3 text-sm text-gray-700"
+            >
+              <span class="font-semibold">Contact:</span>
+              Kepala Bidang Kominfo – Pak Hendra Lahay
+              <a
+                href="https://wa.me/6285240260204?text=Apakah%20benar%20Salman%20adalah%20mantan%20IT%20Networking%20di%20Dinas%20Kominfo%20Kabupaten%20Bonebolango%3F"
+                class="text-blue-600 font-medium hover:underline"
+                target="_blank"
+              >
+                +62 852 4026 0204 (WhatsApp)
+              </a>
             </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Education Section -->
     <section id="education" class="py-16 bg-gray-100">
-        <!-- <div class="container mx-auto px-4"> -->
-            <div class="container max-w-6xl mx-auto px-6 lg:px-12">
-
-            <h2 class="section-title text-3xl font-bold text-blue-600 mb-8" data-aos="fade-up">Pendidikan</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform" data-aos="fade-up" data-aos-delay="100">
-                    <h3 class="text-xl font-semibold">Sarjana Teknik Informatika</h3>
-                    <p class="text-gray-500">[Nama Universitas], 2017 - 2021</p>
-                    <p class="text-gray-600 mt-2">Fokus pada pengembangan perangkat lunak, basis data, dan algoritma. Skripsi: "Optimalisasi Kinerja Aplikasi Web dengan Laravel."</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform" data-aos="fade-up" data-aos-delay="200">
-                    <h3 class="text-xl font-semibold">Kursus Laravel Profesional</h3>
-                    <p class="text-gray-500">[Nama Platform], 2022</p>
-                    <p class="text-gray-600 mt-2">Pelatihan intensif tentang pengembangan aplikasi web lanjutan dengan Laravel, termasuk REST API dan pengujian otomatis.</p>
-                </div>
-            </div>
+      <!-- <div class="container mx-auto px-4"> -->
+      <div class="container max-w-6xl mx-auto px-6 lg:px-12">
+        <h2
+          class="section-title text-3xl font-bold text-blue-600 mb-8"
+          data-aos="fade-up"
+        >
+          Pendidikan
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <h3 class="text-xl font-semibold">Sarjana Teknik Informatika</h3>
+            <p class="text-gray-500">[Nama Universitas], 2017 - 2021</p>
+            <p class="text-gray-600 mt-2">
+              Fokus pada pengembangan perangkat lunak, basis data, dan
+              algoritma. Skripsi: "Optimalisasi Kinerja Aplikasi Web dengan
+              Laravel."
+            </p>
+          </div>
+          <div
+            class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <h3 class="text-xl font-semibold">Kursus Laravel Profesional</h3>
+            <p class="text-gray-500">[Nama Platform], 2022</p>
+            <p class="text-gray-600 mt-2">
+              Pelatihan intensif tentang pengembangan aplikasi web lanjutan
+              dengan Laravel, termasuk REST API dan pengujian otomatis.
+            </p>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Projects Section -->
     <section id="projects" class="py-16">
-        <!-- <div class="container mx-auto px-4"> -->
-        <div class="container max-w-6xl mx-auto px-6 lg:px-12">
-
-            <h2 class="section-title text-3xl font-bold text-blue-600 mb-8" data-aos="fade-up">Proyek</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform" data-aos="fade-up" data-aos-delay="100">
-                    <img src="https://via.placeholder.com/400x200?text=Inventory+System" alt="Sistem Manajemen Inventori" class="project-image mb-4">
-                    <h3 class="text-xl font-semibold">Sistem Manajemen Inventori</h3>
-                    <p class="text-gray-600 mt-2">Aplikasi berbasis Laravel untuk mengelola stok barang dengan fitur CRUD, autentikasi pengguna, dan laporan berbasis MySQL. Antarmuka menggunakan Bootstrap.</p>
-                    <button type="button" class="mt-4 inline-block bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition" data-modal-target="project1-modal" data-modal-toggle="project1-modal">Lihat Detail</button>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform" data-aos="fade-up" data-aos-delay="200">
-                    <img src="https://via.placeholder.com/400x200?text=E-Commerce+API" alt="API E-Commerce" class="project-image mb-4">
-                    <h3 class="text-xl font-semibold">API E-Commerce</h3>
-                    <p class="text-gray-600 mt-2">API RESTful menggunakan Laravel untuk mendukung aplikasi e-commerce, termasuk manajemen produk, keranjang belanja, dan integrasi pembayaran.</p>
-                    <button type="button" class="mt-4 inline-block bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition" data-modal-target="project2-modal" data-modal-toggle="project2-modal">Lihat Detail</button>
-                </div>
-            </div>
+      <!-- <div class="container mx-auto px-4"> -->
+      <div class="container max-w-6xl mx-auto px-6 lg:px-12">
+        <h2
+          class="section-title text-3xl font-bold text-blue-600 mb-8"
+          data-aos="fade-up"
+        >
+          Proyek
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <img
+              src="https://image.thum.io/get/width/600/https://siat.ung.ac.id"
+              alt="Preview Project"
+              class="project-image mb-4 object-contain w-full max-h-[500px] bg-gray-100"
+              onerror="this.onerror=null;this.src='assets/img/gambar-default.png';"
+            />
+            <h3 class="text-xl font-semibold">Sistem Manajemen Inventori</h3>
+            <p class="text-gray-600 mt-2">
+              Aplikasi berbasis Laravel untuk mengelola stok barang dengan fitur
+              CRUD, autentikasi pengguna, dan laporan berbasis MySQL. Antarmuka
+              menggunakan Bootstrap.
+            </p>
+            <button
+              type="button"
+              class="mt-4 inline-block bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition"
+              data-modal-target="project1-modal"
+              data-modal-toggle="project1-modal"
+            >
+              Lihat Detail
+            </button>
+          </div>
         </div>
-        <!-- Modal for Project 1 -->
-        <div id="project1-modal" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-            <div class="relative p-4 w-full max-w-2xl max-h-full">
-                <div class="relative bg-white rounded-lg shadow">
-                    <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
-                        <h3 class="text-xl font-semibold text-gray-900">Sistem Manajemen Inventori</h3>
-                        <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" data-modal-hide="project1-modal">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
-                    <div class="p-4 md:p-5">
-                        <img src="https://via.placeholder.com/600x300?text=Inventory+System" alt="Sistem Manajemen Inventori" class="w-full rounded-lg mb-4">
-                        <p class="text-gray-600">Aplikasi ini memungkinkan pengguna untuk mengelola stok barang dengan fitur seperti pembaruan stok secara real-time, autentikasi pengguna dengan Laravel, dan laporan berbasis MySQL. Antarmuka dibangun menggunakan Bootstrap untuk responsivitas.</p>
-                        <p class="text-gray-600 mt-2">Teknologi: Laravel, MySQL, Bootstrap, REST API.</p>
-                    </div>
-                </div>
+      </div>
+      <!-- Modal for Project 1 -->
+      <div
+        id="project1-modal"
+        tabindex="-1"
+        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
+      >
+        <div class="relative p-4 w-full max-w-2xl max-h-full">
+          <div class="relative bg-white rounded-lg shadow">
+            <div
+              class="flex items-center justify-between p-4 md:p-5 border-b rounded-t"
+            >
+              <h3 class="text-xl font-semibold text-gray-900">
+                Sistem Manajemen Inventori
+              </h3>
+              <button
+                type="button"
+                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                data-modal-hide="project1-modal"
+              >
+                <i class="fas fa-times"></i>
+              </button>
             </div>
-        </div>
-        <!-- Modal for Project 2 -->
-        <div id="project2-modal" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-            <div class="relative p-4 w-full max-w-2xl max-h-full">
-                <div class="relative bg-white rounded-lg shadow">
-                    <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
-                        <h3 class="text-xl font-semibold text-gray-900">API E-Commerce</h3>
-                        <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" data-modal-hide="project2-modal">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
-                    <div class="p-4 md:p-5">
-                        <img src="https://via.placeholder.com/600x300?text=E-Commerce+API" alt="API E-Commerce" class="w-full rounded-lg mb-4">
-                        <p class="text-gray-600">API RESTful ini mendukung fungsi inti e-commerce seperti manajemen produk, keranjang belanja, dan integrasi pembayaran. Dibangun dengan Laravel untuk performa dan skalabilitas tinggi.</p>
-                        <p class="text-gray-600 mt-2">Teknologi: Laravel, MySQL, REST API.</p>
-                    </div>
-                </div>
+            <div class="p-4 md:p-5">
+              <img
+                src="https://image.thum.io/get/width/600/https://siat.ung.ac.id"
+                alt="Preview Project"
+                class="project-image mb-4 object-contain w-full max-h-[500px] bg-gray-100 rounded-lg mb-4"
+                onerror="this.onerror=null;this.src='assets/img/gambar-default.png';"
+              />
+              <p class="text-gray-600">
+                Aplikasi ini memungkinkan pengguna untuk mengelola stok barang
+                dengan fitur seperti pembaruan stok secara real-time,
+                autentikasi pengguna dengan Laravel, dan laporan berbasis MySQL.
+                Antarmuka dibangun menggunakan Bootstrap untuk responsivitas.
+              </p>
+              <p class="text-gray-600 mt-2">
+                Teknologi: Laravel, MySQL, Bootstrap, REST API.
+              </p>
             </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Certificate Section -->
     <section id="certificate" class="py-16 bg-gray-100">
-        <div class="container max-w-6xl mx-auto px-6 lg:px-12">
-            <h2 class="section-title text-3xl font-bold text-blue-600 mb-8" data-aos="fade-up">Sertifikasi</h2>
+      <div class="container max-w-6xl mx-auto px-6 lg:px-12">
+        <h2
+          class="section-title text-3xl font-bold text-blue-600 mb-8"
+          data-aos="fade-up"
+        >
+          Sertifikasi
+        </h2>
 
-            <!-- Grid Sertifikat -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="certificateGrid">
-
-            <!-- Card Sertifikat -->
-            <div class="bg-white rounded-xl shadow-md overflow-hidden cursor-pointer hover:shadow-xl transition" 
-                onclick="openCertificateModal('AWS Cloud Practitioner', '2023', '2026', 'Sertifikasi AWS Cloud Practitioner membuktikan kemampuan dasar cloud computing.', 'assets/sertifikat/test.png', false)">
-                <div class="h-48 bg-gray-200 flex items-center justify-center overflow-hidden">
-                <img src="assets/sertifikat/test.png" alt="AWS Cloud Practitioner" class="object-contain h-full w-full" />
-                </div>
-                <div class="p-4">
-                <h3 class="text-lg font-semibold text-gray-800">AWS Cloud Practitioner</h3>
-                </div>
+        <!-- Grid Sertifikat -->
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          id="certificateGrid"
+        >
+          <!-- Card Sertifikat -->
+          <div
+            class="bg-white rounded-xl shadow-md overflow-hidden cursor-pointer hover:shadow-xl transition"
+            onclick="openCertificateModal('AWS Cloud Practitioner', '2023', '2026', 'Sertifikasi AWS Cloud Practitioner membuktikan kemampuan dasar cloud computing.', 'assets/sertifikat/test.png', false)"
+          >
+            <div
+              class="h-48 bg-gray-200 flex items-center justify-center overflow-hidden"
+            >
+              <img
+                src="assets/sertifikat/test.png"
+                alt="AWS Cloud Practitioner"
+                class="object-contain h-full w-full"
+              />
             </div>
-
-            <div class="bg-white rounded-xl shadow-md overflow-hidden cursor-pointer hover:shadow-xl transition"
-                onclick="openCertificateModal('Sertifikat Web Security', '2023', '2026', 'Sertifikasi keamanan web.', 'assets/sertifikat/test.pdf', true)">
-                <div class="h-48 bg-gray-200 flex items-center justify-center overflow-hidden">
-                    <canvas id="thumb1" class="object-contain h-full w-full"></canvas>
-                </div>
-                <div class="p-4">
-                    <h3 class="text-lg font-semibold text-gray-800">Sertifikat Web Security</h3>
-                </div>
+            <div class="p-4">
+              <h3 class="text-lg font-semibold text-gray-800">
+                AWS Cloud Practitioner
+              </h3>
             </div>
+          </div>
 
-            <!-- Tambahkan lagi sesuai kebutuhan -->
-
+          <div
+            class="bg-white rounded-xl shadow-md overflow-hidden cursor-pointer hover:shadow-xl transition"
+            onclick="openCertificateModal('Sertifikat Web Security', '2023', '2026', 'Sertifikasi keamanan web.', 'assets/sertifikat/test.pdf', true)"
+          >
+            <div
+              class="h-48 bg-gray-200 flex items-center justify-center overflow-hidden"
+            >
+              <canvas id="thumb1" class="object-contain h-full w-full"></canvas>
             </div>
+            <div class="p-4">
+              <h3 class="text-lg font-semibold text-gray-800">
+                Sertifikat Web Security
+              </h3>
+            </div>
+          </div>
+
+          <!-- Tambahkan lagi sesuai kebutuhan -->
         </div>
-        </section>
+      </div>
 
-    <!-- Modal Sertifikat -->
-    <div id="certificateModal" class="fixed inset-0 hidden bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+      <!-- Modal Sertifikat -->
+      <div
+        id="certificateModal"
+        class="fixed inset-0 hidden bg-black bg-opacity-50 z-50 flex items-center justify-center p-4"
+      >
         <div class="bg-white rounded-xl max-w-4xl w-full shadow-lg relative">
-            <button onclick="closeCertificateModal()" class="absolute top-2 right-2 text-gray-600 hover:text-gray-800 text-xl">&times;</button>
-            <div class="p-6 text-center">
+          <button
+            onclick="closeCertificateModal()"
+            class="absolute top-2 right-2 text-gray-600 hover:text-gray-800 text-xl"
+          >
+            &times;
+          </button>
+          <div class="p-6 text-center">
             <div id="modalContent"></div>
-            <h3 id="modalTitle" class="text-2xl font-bold text-gray-800 mt-4"></h3>
-            <p class="text-gray-600 mb-1"><strong>Tahun Diperoleh:</strong> <span id="modalYear"></span></p>
-            <p class="text-gray-600 mb-3"><strong>Expired:</strong> <span id="modalExpired"></span></p>
+            <h3
+              id="modalTitle"
+              class="text-2xl font-bold text-gray-800 mt-4"
+            ></h3>
+            <p class="text-gray-600 mb-1">
+              <strong>Tahun Diperoleh:</strong> <span id="modalYear"></span>
+            </p>
+            <p class="text-gray-600 mb-3">
+              <strong>Expired:</strong> <span id="modalExpired"></span>
+            </p>
             <p id="modalDescription" class="text-gray-700"></p>
-            </div>
+          </div>
         </div>
-    </div>
+      </div>
+    </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
-        <!-- <div class="container mx-auto px-4 text-center"> -->
-        <div class="container max-w-6xl mx-auto px-6 lg:px-12">
-
-            <h2 class="section-title text-3xl font-bold mb-8" data-aos="fade-up">Hubungi Saya</h2>
-            <!-- <form id="contactForm" data-aos="fade-up" data-aos-delay="100"> -->
-                <form id="contactForm" data-aos="fade-up" data-aos-delay="100" onsubmit="return false;">
-
-                <div class="mb-6">
-                    <label for="name" class="block font-semibold mb-2">Nama</label>
-                    <input type="text" id="name" name="name" required class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-500">
-                </div>
-                <div class="mb-6">
-                    <label for="email" class="block font-semibold mb-2">Email</label>
-                    <input type="email" id="email" name="email" required class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-500">
-                </div>
-                <div class="mb-6">
-                    <label for="message" class="block font-semibold mb-2">Pesan</label>
-                    <textarea id="message" name="message" rows="5" required class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-500"></textarea>
-                </div>
-                <button type="submit" class="w-full bg-blue-900 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700 transition">Kirim Pesan</button>
-            </form>
-        </div>
+    <section
+      id="contact"
+      class="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white"
+    >
+      <!-- <div class="container mx-auto px-4 text-center"> -->
+      <div class="container max-w-6xl mx-auto px-6 lg:px-12">
+        <h2 class="section-title text-3xl font-bold mb-8" data-aos="fade-up">
+          Hubungi Saya
+        </h2>
+        <!-- <form id="contactForm" data-aos="fade-up" data-aos-delay="100"> -->
+        <form
+          id="contactForm"
+          data-aos="fade-up"
+          data-aos-delay="100"
+          onsubmit="return false;"
+        >
+          <div class="mb-6">
+            <label for="name" class="block font-semibold mb-2">Nama</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-500"
+            />
+          </div>
+          <div class="mb-6">
+            <label for="email" class="block font-semibold mb-2">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-500"
+            />
+          </div>
+          <div class="mb-6">
+            <label for="message" class="block font-semibold mb-2">Pesan</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              required
+              class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-500"
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="w-full bg-blue-900 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700 transition"
+          >
+            Kirim Pesan
+          </button>
+        </form>
+      </div>
     </section>
 
     <!-- Flowbite JS -->
@@ -309,5 +688,5 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
     <script src="assets/script.js"></script>
-</body>
+  </body>
 </html>
