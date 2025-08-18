@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backend Developer Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Flowbite CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+    <!-- Font Awesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts (Quicksand) -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- AOS for Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #f9fafb;
+            /* padding-bottom: 100px; Adjusted for bottom nav */
+        }
+        /* Navbar Styling */
+        .navbar-top {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .navbar-top .nav-link {
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .navbar-top .nav-link:hover {
+            color: #3b82f6;
+            transform: translateY(-2px);
+        }
+        .navbar-bottom {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+            padding: 12px 0; /* Adjusted vertical padding */
+            border-top: 1px solid #e5e7eb;
+        }
+        .navbar-bottom .nav-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem; /* Smaller font for labels */
+            padding: 8px 12px; /* Adjusted padding for compactness */
+            color: #1f2937;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .navbar-bottom .nav-link span {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .navbar-bottom .nav-link:hover span, .navbar-bottom .nav-link.active span {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .navbar-bottom .nav-link:hover {
+            color: #3b82f6;
+            transform: scale(1.1);
+        }
+        .navbar-bottom .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #3b82f6;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        .navbar-bottom .nav-link:hover::after {
+            transform: scaleX(1);
+        }
+        .navbar-bottom .nav-link i {
+            font-size: 1rem; /* Smaller icons */
+            margin-bottom: 4px;
+            transition: transform 0.3s ease;
+        }
+        .navbar-bottom .nav-link:hover i {
+            transform: rotate(10deg);
+        }
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"%3E%3Cpath fill="%23ffffff" fill-opacity="0.2" d="M0,128L48,144C96,160,192,192,288,181.3C384,171,480,117,576,106.7C672,96,768,128,864,149.3C960,171,1056,181,1152,181.3C1248,181,1344,171,1392,165.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"%3E%3C/path%3E%3C/svg%3E');
+            background-size: cover;
+            opacity: 0.3;
+        }
+        /* Section Title */
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            width: 50%;
+            height: 3px;
+            background: #3b82f6;
+        }
+        /* Experience List View */
+        .experience-item {
+            position: relative;
+            padding-left: 2.5rem;
+            margin-bottom: 2rem;
+        }
+        .experience-item::before {
+            content: '\f058';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            color: #3b82f6;
+            font-size: 1.5rem;
+        }
+        /* Project Image */
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        @media (min-width: 1024px) {
+            section {
+                padding-top: 6rem;
+                padding-bottom: 6rem;
+            }
+            .hero {
+                padding: 8rem 0;
+            }
+        }
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .navbar-top {
+                display: none;
+            }
+            .navbar-bottom {
+                display: flex;
+            }
+            .hero {
+                padding: 4rem 0;
+            }
+            .hero img {
+                width: 100px;
+                height: 100px;
+            }
+            .project-image {
+                height: 150px;
+            }
+            body {
+                padding-bottom: 80px;
+            }
+        }
+        @media (min-width: 769px) {
+            .navbar-bottom {
+                display: none;
+            }
+            .navbar-top .nav-link {
+                font-size: 1rem; /* Default font size for desktop */
+            }
+        }
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .navbar-top .nav-link {
+                font-size: 0.9rem; /* Smaller font for tablets */
+                margin-left: 1rem;
+            }
+        }
+        @media (max-width: 360px) {
+            .navbar-bottom .nav-link {
+                padding: 6px 8px; /* Tighter padding for small screens */
+                font-size: 0.65rem;
+            }
+            .navbar-bottom .nav-link i {
+                font-size: 1.1rem;
+            }
+            .profile-picture {
+                width: 100px !important; /* Smaller for very small screens */
+                height: 100px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar (Desktop) -->
+    <nav class="navbar-top fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="https://github.com/abangucup" class="text-2xl font-bold text-blue-500">Salman Mustapa</a>
+            <div class="hidden md:flex space-x-4">
+                <a href="#about" class="nav-link text-gray-800 hover:text-blue-500 flex items-center"><i class="fas fa-home mr-2"></i>Tentang</a>
+                <a href="#skills" class="nav-link text-gray-800 hover:text-blue-500 flex items-center"><i class="fas fa-laptop-code mr-2"></i>Keahlian</a>
+                <a href="#experience" class="nav-link text-gray-800 hover:text-blue-500 flex items-center"><i class="fas fa-briefcase mr-2"></i>Pengalaman</a>
+                <a href="#education" class="nav-link text-gray-800 hover:text-blue-500 flex items-center"><i class="fas fa-graduation-cap mr-2"></i>Pendidikan</a>
+                <a href="#projects" class="nav-link text-gray-800 hover:text-blue-500 flex items-center"><i class="fas fa-folder-open mr-2"></i>Proyek</a>
+                <a href="#cv" class="nav-link text-gray-800 hover:text-blue-500 flex items-center"><i class="fas fa-file mr-2"></i>CV</a>
+                <a href="#contact" class="nav-link text-gray-800 hover:text-blue-500 flex items-center"><i class="fas fa-envelope mr-2"></i>Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Navbar (Mobile Bottom) -->
+    <nav class="navbar-bottom">
+        <div class="container mx-auto px-4"> <!-- Reduced padding -->
+            <div class="flex justify-around gap-2"> <!-- Added gap between icons -->
+                <a href="#about" class="nav-link"><i class="fas fa-home"></i><span>Tentang</span></a>
+                <a href="#skills" class="nav-link"><i class="fas fa-laptop-code"></i><span>Keahlian</span></a>
+                <a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i><span>Pengalaman</span></a>
+                <a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i><span>Pendidikan</span></a>
+                <a href="#projects" class="nav-link"><i class="fas fa-folder-open"></i><span>Proyek</span></a>
+                <a href="#cv" class="nav-link"><i class="fas fa-file"></i><span>CV</span></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero py-24">
+        <!-- <div class="container mx-auto px-4 text-center" data-aos="fade-up"> -->
+            <div class="container max-w-6xl mx-auto px-6 lg:px-12 text-center" data-aos="fade-up">
+            <!-- <img src="PashPhoto_Kuliah_3x4.jpeg" alt="Profile Picture" class="profile-picture rounded border-2 border-white mx-auto mb-6 md:w-32" data-aos="zoom-in" data-aos-delay="200"> -->
+            <h1 class="text-4xl md:text-5xl font-bold">Halo, Saya Salman Mustapa</h1>
+            <p class="text-lg md:text-xl mt-2">Backend Developer | Netoworking Enthusiast | User Linux | Open Source Advocate | Laravel, Bootstrap, MySQL, Cisco, Mikrotik, Ubuntu</p>
+            <a href="#contact" class="mt-6 inline-block bg-white text-blue-600 font-semibold py-3 px-6 rounded-lg hover:bg-blue-100 transition">Hubungi Saya</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16">
+        <!-- <div class="container mx-auto px-4"> -->
+            <div class="container max-w-6xl mx-auto px-6 lg:px-12">
+
+            <h2 class="section-title text-3xl font-bold text-blue-600 mb-8" data-aos="fade-up">Tentang Saya</h2>
+            <div class="mx-auto bg-white p-6 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                <p class="text-gray-600">Saya seorang Backend Developer dengan pengalaman [X tahun] dalam membangun aplikasi web yang skalabel dan efisien menggunakan Laravel, Bootstrap, dan MySQL. Saya bersemangat menciptakan solusi teknologi yang inovatif dengan fokus pada performa, keamanan, dan pengalaman pengguna yang optimal.</p>
+                <p class="text-gray-600 mt-4">Selain keahlian teknis, saya juga terampil dalam kolaborasi tim, manajemen proyek, dan komunikasi dengan klien untuk memastikan solusi yang dikembangkan sesuai dengan kebutuhan bisnis.</p>
+                <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <p><i class="fas fa-envelope mr-2 text-blue-600"></i> <a href="mailto:id.salmanmustapa@gmail.com">id.salmanmustapa@gmail.com</a></p>
+                    <p><i class="fab fa-linkedin mr-2 text-blue-600"></i> <a href="https://www.linkedin.com/in/salman-mustapa-0b4997284/" target="_blank">Salman Mustapa</a></p>
+                    <p><i class="fab fa-github mr-2 text-blue-600"></i> <a href="https://github.com/abangucup" target="_blank">github.com/abangucup</a></p>
+                    <p><i class="fas fa-phone mr-2 text-blue-600"></i> <a href="wa.me/6282154488769">+62 821-5448-8769</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 bg-gray-100">
+        <!-- <div class="container mx-auto px-4"> -->
+            <div class="container max-w-6xl mx-auto px-6 lg:px-12">
+
+            <h2 class="section-title text-3xl font-bold text-blue-600 mb-8" data-aos="fade-up">Keahlian</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-code fa-2x text-blue-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold">Laravel</h3>
+                    <p class="text-gray-600">Pengembangan aplikasi web dengan Laravel, termasuk Eloquent ORM, Blade templating, RESTful API, dan autentikasi.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fab fa-bootstrap fa-2x text-blue-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold">Bootstrap</h3>
+                    <p class="text-gray-600">Membangun antarmuka pengguna yang responsif dan modern dengan Bootstrap untuk pengalaman pengguna yang konsisten.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-database fa-2x text-blue-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold">MySQL</h3>
+                    <p class="text-gray-600">Desain dan pengelolaan database relasional dengan MySQL untuk mendukung aplikasi berperforma tinggi.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section (List View with Animation) -->
+    <section id="experience" class="py-16">
+        <!-- <div class="container mx-auto px-4"> -->
+            <div class="container max-w-6xl mx-auto px-6 lg:px-12">
+
+            <h2 class="section-title text-3xl font-bold text-blue-600 mb-8" data-aos="fade-up">Pengalaman</h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="experience-item bg-white p-6 rounded-xl shadow-lg" data-aos="fade-right" data-aos-delay="100">
+                    <h3 class="text-xl font-semibold">Backend Developer - [Nama Perusahaan]</h3>
+                    <p class="text-gray-500">Januari 2023 - Sekarang</p>
+                    <p class="text-gray-600 mt-2">Mengembangkan aplikasi manajemen inventori menggunakan Laravel dan MySQL, mengintegrasikan API pihak ketiga, dan mengoptimalkan performa database.</p>
+                </div>
+                <div class="experience-item bg-white p-6 rounded-xl shadow-lg" data-aos="fade-right" data-aos-delay="200">
+                    <h3 class="text-xl font-semibold">Junior Developer - [Nama Perusahaan]</h3>
+                    <p class="text-gray-500">Juni 2021 - Desember 2022</p>
+                    <p class="text-gray-600 mt-2">Mendukung pengembangan fitur baru untuk aplikasi web berbasis Laravel, termasuk autentikasi pengguna dan manajemen data pelanggan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-16 bg-gray-100">
+        <!-- <div class="container mx-auto px-4"> -->
+            <div class="container max-w-6xl mx-auto px-6 lg:px-12">
+
+            <h2 class="section-title text-3xl font-bold text-blue-600 mb-8" data-aos="fade-up">Pendidikan</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-xl font-semibold">Sarjana Teknik Informatika</h3>
+                    <p class="text-gray-500">[Nama Universitas], 2017 - 2021</p>
+                    <p class="text-gray-600 mt-2">Fokus pada pengembangan perangkat lunak, basis data, dan algoritma. Skripsi: "Optimalisasi Kinerja Aplikasi Web dengan Laravel."</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-semibold">Kursus Laravel Profesional</h3>
+                    <p class="text-gray-500">[Nama Platform], 2022</p>
+                    <p class="text-gray-600 mt-2">Pelatihan intensif tentang pengembangan aplikasi web lanjutan dengan Laravel, termasuk REST API dan pengujian otomatis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16">
+        <!-- <div class="container mx-auto px-4"> -->
+        <div class="container max-w-6xl mx-auto px-6 lg:px-12">
+
+            <h2 class="section-title text-3xl font-bold text-blue-600 mb-8" data-aos="fade-up">Proyek</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://via.placeholder.com/400x200?text=Inventory+System" alt="Sistem Manajemen Inventori" class="project-image mb-4">
+                    <h3 class="text-xl font-semibold">Sistem Manajemen Inventori</h3>
+                    <p class="text-gray-600 mt-2">Aplikasi berbasis Laravel untuk mengelola stok barang dengan fitur CRUD, autentikasi pengguna, dan laporan berbasis MySQL. Antarmuka menggunakan Bootstrap.</p>
+                    <button type="button" class="mt-4 inline-block bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition" data-modal-target="project1-modal" data-modal-toggle="project1-modal">Lihat Detail</button>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://via.placeholder.com/400x200?text=E-Commerce+API" alt="API E-Commerce" class="project-image mb-4">
+                    <h3 class="text-xl font-semibold">API E-Commerce</h3>
+                    <p class="text-gray-600 mt-2">API RESTful menggunakan Laravel untuk mendukung aplikasi e-commerce, termasuk manajemen produk, keranjang belanja, dan integrasi pembayaran.</p>
+                    <button type="button" class="mt-4 inline-block bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition" data-modal-target="project2-modal" data-modal-toggle="project2-modal">Lihat Detail</button>
+                </div>
+            </div>
+        </div>
+        <!-- Modal for Project 1 -->
+        <div id="project1-modal" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+            <div class="relative p-4 w-full max-w-2xl max-h-full">
+                <div class="relative bg-white rounded-lg shadow">
+                    <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
+                        <h3 class="text-xl font-semibold text-gray-900">Sistem Manajemen Inventori</h3>
+                        <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" data-modal-hide="project1-modal">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="p-4 md:p-5">
+                        <img src="https://via.placeholder.com/600x300?text=Inventory+System" alt="Sistem Manajemen Inventori" class="w-full rounded-lg mb-4">
+                        <p class="text-gray-600">Aplikasi ini memungkinkan pengguna untuk mengelola stok barang dengan fitur seperti pembaruan stok secara real-time, autentikasi pengguna dengan Laravel, dan laporan berbasis MySQL. Antarmuka dibangun menggunakan Bootstrap untuk responsivitas.</p>
+                        <p class="text-gray-600 mt-2">Teknologi: Laravel, MySQL, Bootstrap, REST API.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal for Project 2 -->
+        <div id="project2-modal" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+            <div class="relative p-4 w-full max-w-2xl max-h-full">
+                <div class="relative bg-white rounded-lg shadow">
+                    <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
+                        <h3 class="text-xl font-semibold text-gray-900">API E-Commerce</h3>
+                        <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" data-modal-hide="project2-modal">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="p-4 md:p-5">
+                        <img src="https://via.placeholder.com/600x300?text=E-Commerce+API" alt="API E-Commerce" class="w-full rounded-lg mb-4">
+                        <p class="text-gray-600">API RESTful ini mendukung fungsi inti e-commerce seperti manajemen produk, keranjang belanja, dan integrasi pembayaran. Dibangun dengan Laravel untuk performa dan skalabilitas tinggi.</p>
+                        <p class="text-gray-600 mt-2">Teknologi: Laravel, MySQL, REST API.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CV Section -->
+    <section id="cv" class="py-16 bg-gray-100">
+        <!-- <div class="container mx-auto px-4"> -->
+        <div class="container max-w-6xl mx-auto px-6 lg:px-12">
+
+            <h2 class="section-title text-3xl font-bold text-blue-600 mb-8" data-aos="fade-up">Curriculum Vitae</h2>
+            <div class="max-w-3xl mx-auto bg-white p-6 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-xl font-semibold mb-4">Ringkasan CV</h3>
+                <div class="mb-6">
+                    <h4 class="text-lg font-semibold">Pendidikan</h4>
+                    <p class="text-gray-600"><strong>Sarjana Teknik Informatika</strong>, [Nama Universitas], 2017 - 2021</p>
+                    <p class="text-gray-600"><strong>Kursus Laravel Profesional</strong>, [Nama Platform], 2022</p>
+                </div>
+                <div class="mb-6">
+                    <h4 class="text-lg font-semibold">Pengalaman Kerja</h4>
+                    <p class="text-gray-600"><strong>Backend Developer</strong>, [Nama Perusahaan], Januari 2023 - Sekarang</p>
+                    <p class="text-gray-600"><strong>Junior Developer</strong>, [Nama Perusahaan], Juni 2021 - Desember 2022</p>
+                </div>
+                <div class="mb-6">
+                    <h4 class="text-lg font-semibold">Keahlian</h4>
+                    <p class="text-gray-600">Laravel, Bootstrap, MySQL, REST API, Eloquent ORM, Blade Templating</p>
+                </div>
+                <a href="CV_SalmanMustapa.pdf" download class="inline-block bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition">Unduh CV (PDF)</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="section-title text-3xl font-bold mb-8" data-aos="fade-up">Hubungi Saya</h2>
+            <div class="max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                <p class="mb-4"><i class="fas fa-envelope mr-2"></i> <a href="mailto:id.salmanmustapa@gmail.com">id.salmanmustapa@gmail.com</a></p>
+                <p class="mb-4"><i class="fab fa-linkedin mr-2"></i> <a href="https://www.linkedin.com/in/salman-mustapa-0b4997284/" target="_blank">Salman Mustapa</a></p>
+                <p class="mb-4"><i class="fab fa-github mr-2"></i> <a href="https://github.com/abangucup" target="_blank">github.com/abangucup</a></p>
+                <p><i class="fas fa-phone mr-2"></i> <a href="wa.me/6282154488769">+62 821-5448-8769</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flowbite JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                window.scrollTo({
+                    top: targetElement.offsetTop - (window.innerWidth > 768 ? 80 : 100),
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add active class to bottom nav link on click
+        document.querySelectorAll('.navbar-bottom .nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelectorAll('.navbar-bottom .nav-link').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Ripple effect for profile picture
+        document.querySelector('.profile-picture').addEventListener('click', function(e) {
+            const ripple = document.createElement('span');
+            ripple.classList.add('ripple');
+            const diameter = Math.max(this.clientWidth, this.clientHeight);
+            const radius = diameter / 2;
+            ripple.style.width = ripple.style.height = `${diameter}px`;
+            ripple.style.left = `${e.clientX - this.getBoundingClientRect().left - radius}px`;
+            ripple.style.top = `${e.clientY - this.getBoundingClientRect().top - radius}px`;
+            this.appendChild(ripple);
+            setTimeout(() => ripple.remove(), 600);
+        });
+    </script>
+</body>
+</html>
