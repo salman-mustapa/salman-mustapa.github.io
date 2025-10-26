@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://salman-mustapa.github.io/sitemap.xml

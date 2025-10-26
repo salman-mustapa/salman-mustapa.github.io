@@ -107,30 +107,149 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
 });
 
 // ==========================
-// 6. Certificate Modal (Preview Sertifikat)
+// 6. Blog
+// ==========================
+
+let currentPage = 1;
+const perPage = 3;
+let blogs = [];
+
+// Fetch blogs from JSON
+fetch("assets/data/blogs.json")
+  .then(res => res.json())
+  .then(data => {
+    blogs = data;
+    renderBlogs();
+  });
+
+// Render blog cards
+function renderBlogs() {
+  const start = 0;
+  const end = currentPage * perPage;
+  const visibleBlogs = blogs.slice(0, end);
+
+  const grid = document.getElementById("blogGrid");
+  grid.innerHTML = "";
+
+  visibleBlogs.forEach(blog => {
+    const card = document.createElement("div");
+    card.className =
+      "bg-white rounded-xl shadow-md overflow-hidden cursor-pointer hover:shadow-xl transition";
+    card.innerHTML = `
+      <div class="h-48 bg-gray-200 overflow-hidden">
+        <img src="${blog.thumbnail}" alt="${blog.title}" class="cover w-full h-full" />
+      </div>
+      <div class="p-4">
+        <h3 class="text-lg font-semibold text-gray-800 mb-1">${blog.title}</h3>
+        <p class="text-gray-500 text-sm mb-2">${blog.date} • ${blog.author}</p>
+        <p class="text-gray-600 text-sm">${blog.description}</p>
+        <a href="${blog.url}" target="_blank" type="button"
+              class="mt-4 inline-block bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition"
+              data-modal-target="project1-modal"
+              data-modal-toggle="project1-modal">Baca Selengkapnya</a>
+      </div>
+    `;
+    card.addEventListener("click", () => openBlogModal(blog));
+    grid.appendChild(card);
+  });
+
+  // Hide "Show More" if all shown
+  if (end >= blogs.length) {
+    document.getElementById("loadMoreBtn").style.display = "none";
+  }
+}
+
+// Load more button
+document.getElementById("loadMoreBtn").addEventListener("click", () => {
+  currentPage++;
+  renderBlogs();
+});
+
+// ==========================
+// 7. Certificate Modal (Preview Sertifikat)
 // ==========================
 function openCertificateModal(title, year, expired, description, file, isPdf = false) {
-    document.getElementById("modalTitle").innerText = title;
-    document.getElementById("modalYear").innerText = year;
-    document.getElementById("modalExpired").innerText = expired;
-    document.getElementById("modalDescription").innerText = description;
+  document.getElementById("modalTitle").innerText = title;
+  document.getElementById("modalYear").innerText = year;
+  document.getElementById("modalExpired").innerText = expired;
+  document.getElementById("modalDescription").innerText = description;
 
-    const modalContent = document.getElementById("modalContent");
-    modalContent.innerHTML = isPdf 
-      ? `<iframe src="${file}" class="w-full h-96 rounded-md"></iframe>`
-      : `<img src="${file}" alt="${title}" class="mx-auto rounded-md max-h-64 object-contain" />`;
+  const modalContent = document.getElementById("modalContent");
+  const downloadLink = document.getElementById("downloadLink");
 
-    document.getElementById("certificateModal").classList.remove("hidden");
+  // ✅ Pastikan path absolut tapi tanpa querySelector
+  const fileUrl = file.startsWith("http")
+    ? file
+    : `${window.location.origin}${window.location.pathname.replace(/\/[^/]*$/, "/")}${file.replace(/^\.\//, "")}`;
+
+  // ✅ Render konten
+  if (isPdf) {
+    modalContent.innerHTML = `
+      <iframe src="${fileUrl}" class="w-full h-96 rounded-md border border-gray-200 shadow-md"></iframe>
+    `;
+  } else {
+    modalContent.innerHTML = `
+      <img src="${fileUrl}" alt="${title}" class="mx-auto rounded-md max-h-96 object-contain shadow-md" />
+    `;
+  }
+
+  // ✅ Atur link download — tidak pakai querySelector apapun
+  downloadLink.href = fileUrl;
+  downloadLink.download = title.replace(/\s+/g, "_");
+
+  // ✅ Tampilkan modal
+  document.getElementById("certificateModal").classList.remove("hidden");
 }
 
 function closeCertificateModal() {
-    document.getElementById("certificateModal").classList.add("hidden");
+  document.getElementById("certificateModal").classList.add("hidden");
 }
 
+async function loadCertificates() {
+  try {
+    const response = await fetch("assets/data/certificates.json");
+    const data = await response.json();
+
+    const container = document.getElementById("skillsCertificateGrid");
+    container.innerHTML = ""; // kosongkan dulu
+
+    data.forEach(cert => {
+      const card = document.createElement("div");
+      card.className =
+        "bg-white p-5 rounded-xl shadow hover:shadow-lg cursor-pointer transition";
+      card.setAttribute(
+        "onclick",
+        `openCertificateModal(
+          '${cert.title.replace(/'/g, "\\'")}',
+          '${cert.release}',
+          '${cert.expired}',
+          '${cert.description.replace(/'/g, "\\'")}',
+          '${cert.file}',
+          ${cert.isPdf}
+        )`
+      );
+
+      card.innerHTML = `
+        <div class="flex items-center justify-between">
+          <h4 class="font-semibold text-gray-800 text-lg">${cert.title}</h4>
+          <span class="text-sm text-gray-500">Berlaku s/d ${cert.expired}</span>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+  } catch (error) {
+    console.error("Gagal memuat data sertifikat:", error);
+  }
+}
+
+// Jalankan saat halaman selesai dimuat
+document.addEventListener("DOMContentLoaded", loadCertificates);
+
+
 // ==========================
-// 7. PDF.js → Render Thumbnail Sertifikat (halaman pertama PDF)
+// 8. PDF.js → Render Thumbnail Sertifikat (halaman pertama PDF)
 // ==========================
-const url = "assets/sertifikat/test.pdf";
+// const url = "assets/sertifikat/test.pdf";
 const canvas = document.getElementById("thumb1");
 const context = canvas.getContext("2d");
 

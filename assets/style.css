@@ -196,3 +196,13 @@ body {
     }
     .navbar-bottom .nav-link i { font-size: 1rem; }
 }
+
+
+#blogModal::-webkit-scrollbar {
+  width: 8px;
+}
+#blogModal::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 4px;
+}
+

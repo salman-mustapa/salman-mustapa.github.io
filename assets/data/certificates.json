@@ -1,0 +1,18 @@
+[
+  {
+    "title": "AWS Cloud Practitioner",
+    "release": "2023",
+    "expired": "2026",
+    "description": "Sertifikasi AWS Cloud Practitioner membuktikan kemampuan dasar cloud computing.",
+    "file": "assets/sertifikat/test.png",
+    "isPdf": false
+  },
+  {
+    "title": "Sertifikat Web Security",
+    "release": "2023",
+    "expired": "2026",
+    "description": "Sertifikasi keamanan web.",
+    "file": "assets/sertifikat/voucher.pdf",
+    "isPdf": true
+  }
+]

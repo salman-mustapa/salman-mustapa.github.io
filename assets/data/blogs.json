@@ -1,0 +1,48 @@
+[
+  {
+    "title": "Pengenalan SentinelOne",
+    "date": "15 Agustus 2025",
+    "author": "Salman Mustapa",
+    "description": "Mengenali apa itu SentinelOne lengkap dengan cara mengggunakannya dalam melindungi server dari ancaman siber",
+    "thumbnail": "assets/img/pengenalan-sentinelone.png",
+    "content": "Peran penting XDR dalam dunia siber dengan memanfaatkan tools SentinelOne",
+    "url" : "https://salman-mustapa.github.io/sentinelone-docs"
+  },
+  {
+    "title": "Tutorial Laravel dan Xampp",
+    "date": "03 September 2025",
+    "author": "Salman Mustapa",
+    "description": "Menjelaskan bagaimana laravel dapat berjalan menggunakan xampp",
+    "thumbnail": "assets/img/laravel-docs.png",
+    "content": "Laravel adalah framework php yang sangat populer dikalangan web developer.",
+    "url": "https://salman-mustapa.github.io/laravel-docs"
+  },
+  {
+    "title": "Konfigurasi Github",
+    "date": "05 Agustus 2025",
+    "author": "Salman Mustapa",
+    "description": "Bagaimana melakukan konfigurasi serta pengujian github lewat terminal dengan baik",
+    "thumbnail": "assets/img/konfigurasi-github.png",
+    "content": "Pengenalan Github dan pemanfaatan github dalam pengembangan software development",
+    "url" : "https://salman-mustapa.github.io/github-setup"
+  },
+  {
+    "title": "Glossary Tech",
+    "date": "08 Agustus 2025",
+    "author": "Salman Mustapa",
+    "description": "Mengenali istilah-istilah dalam dunia teknologi",
+    "thumbnail": "assets/img/glossary-tech.png",
+    "content": "Meningkatkan pengetahuan terkait istilah dalam dunia teknologi",
+    "url" : "https://salman-mustapa.github.io/glossary-tech"
+  },
+  {
+    "title": "Pengujian SentinelOne",
+    "date": "05 Agustus 2025",
+    "author": "Salman Mustapa",
+    "description": "Penjelasan terkait dengan konfigurasi dan pengujian sentinelone",
+    "thumbnail": "assets/img/pengujian-sentinelone.png",
+    "content": "SentinelOne adalah salah satu tools XDR yang dapat melindungi server dari ancaman siber",
+    "url": "https://salman-mustapa.github.io/s1-docs"
+  } 
+  
+]

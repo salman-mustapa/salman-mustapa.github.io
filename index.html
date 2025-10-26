@@ -6,13 +6,19 @@
     <meta name="author" content="Salman Mustapa" />
     <meta
       name="description"
-      content="Portfolio Salman Mustapa - Backend Developer, Networking, Linux, Laravel, Bootstrap, MySQL, SysAdmin"
+      content="Portfolio Salman Mustapa - Network Engineer & Software Engineer"
     />
     <meta
       name="keywords"
       content="Salman Mustapa, Backend Developer, Laravel, Networking, Linux, Bootstrap, MySQL, SysAdmin, Portfolio"
     />
-    <title>Salman Mustapa</title>
+    <!-- Open Graph (Social Preview) -->
+    <meta property="og:title" content="Salman Mustapa - Portfolio & Tech Blog">
+    <meta property="og:description" content="Eksplor portofolio, proyek, sertifikat, dan tulisan teknologi oleh Salman Mustapa.">
+    <meta property="og:image" content="https://salman-mustapa.github.io/assets/img/preview.png">
+    <meta property="og:url" content="https://salman-mustapa.github.io/">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Salman Mustapa | Portofolio</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Flowbite CSS -->
@@ -33,6 +39,18 @@
     <!-- AOS for Animations -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/style.css" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QNV3SL7HLW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-QNV3SL7HLW');
+    </script>
+
+
   </head>
   <body>
     <!-- Navbar (Desktop) -->
@@ -72,9 +90,9 @@
             ><i class="fas fa-folder-open mr-2"></i>Proyek</a
           >
           <a
-            href="#certificate"
+            href="#blog"
             class="nav-link text-gray-800 hover:text-blue-500 flex items-center"
-            ><i class="fas fa-file mr-2"></i>Sertifikasi</a
+            ><i class="fas fa-globe mr-2"></i>Blog</a
           >
         </div>
       </div>
@@ -121,11 +139,11 @@
           <span class="text-[10px]">Proyek</span>
         </a>
         <a
-          href="#certificate"
+          href="#blog"
           class="nav-link flex flex-col items-center text-gray-600 text-xs"
         >
-          <i class="fas fa-file text-lg"></i>
-          <span class="text-[10px]">Sertifikasi</span>
+          <i class="fas fa-globe text-lg"></i>
+          <span class="text-[10px]">blog</span>
         </a>
       </div>
     </nav>
@@ -281,15 +299,16 @@
 
     <!-- Skills Section -->
     <section id="skills" class="py-16 bg-gray-100">
-      <!-- <div class="container mx-auto px-4"> -->
       <div class="container max-w-6xl mx-auto px-6 lg:px-12">
+        <!-- Judul Utama -->
         <h2
           class="section-title text-3xl font-bold text-blue-600 mb-8"
-          data-aos="fade-up"
-        >
+          data-aos="fade-up">
           Keahlian
         </h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- Grid Keahlian -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
           <div
             class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform"
             data-aos="fade-up"
@@ -302,18 +321,20 @@
               Eloquent ORM, Blade templating, RESTful API, dan autentikasi.
             </p>
           </div>
+
           <div
             class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform"
             data-aos="fade-up"
-            data-aos-delay="100"
+            data-aos-delay="150"
           >
             <i class="fab fa-android fa-2x text-blue-600 mb-4"></i>
             <h3 class="text-xl font-semibold">Kotlin</h3>
             <p class="text-gray-600">
-              Pengembangan aplikasi android menggunakan kotlin dan support
-              integrasi API dan authentikasi
+              Pengembangan aplikasi android menggunakan Kotlin dan integrasi API
+              serta autentikasi.
             </p>
           </div>
+
           <div
             class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform"
             data-aos="fade-up"
@@ -322,22 +343,22 @@
             <i class="fab fa-bootstrap fa-2x text-blue-600 mb-4"></i>
             <h3 class="text-xl font-semibold">Bootstrap</h3>
             <p class="text-gray-600">
-              Membangun antarmuka pengguna yang responsif dan modern dengan
-              Bootstrap untuk pengalaman pengguna yang konsisten.
+              Membangun antarmuka pengguna yang responsif dan modern dengan Bootstrap.
             </p>
           </div>
+
           <div
             class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform"
             data-aos="fade-up"
-            data-aos-delay="300"
+            data-aos-delay="250"
           >
             <i class="fas fa-database fa-2x text-blue-600 mb-4"></i>
             <h3 class="text-xl font-semibold">MySQL / MariaDB</h3>
             <p class="text-gray-600">
-              Desain dan pengelolaan database relasional dengan MySQL untuk
-              mendukung aplikasi berperforma tinggi.
+              Desain dan pengelolaan database relasional untuk mendukung aplikasi berperforma tinggi.
             </p>
           </div>
+
           <div
             class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform"
             data-aos="fade-up"
@@ -346,22 +367,92 @@
             <i class="fas fa-network-wired fa-2x text-blue-600 mb-4"></i>
             <h3 class="text-xl font-semibold">Networking</h3>
             <p class="text-gray-600">
-              Pengelolaan infrastruktur jaringan dan instalasi perangkat
-              jaringan Mikrotik dan Cisco
+              Pengelolaan infrastruktur jaringan dan konfigurasi perangkat Mikrotik serta Cisco.
             </p>
           </div>
+
           <div
             class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform"
             data-aos="fade-up"
-            data-aos-delay="300"
+            data-aos-delay="350"
           >
             <i class="fas fa-server fa-2x text-blue-600 mb-4"></i>
             <h3 class="text-xl font-semibold">SysAdmin</h3>
             <p class="text-gray-600">
-              System Adminstrasi Server Menggunakan Sistem Operasi Linux
+              Administrasi sistem server berbasis Linux untuk pengelolaan dan deployment aplikasi.
             </p>
           </div>
         </div>
+
+        <!-- Subsection Sertifikat -->
+        <div class="mt-8">
+          <h3
+            class="text-2xl font-bold text-blue-600 mb-6 border-b-2 border-blue-200 pb-2"
+            data-aos="fade-up"
+          >
+            Sertifikat Pendukung
+          </h3>
+
+          <!-- Grid Sertifikat -->
+          <div
+  class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+  id="skillsCertificateGrid"
+>
+  <!-- Sertifikat akan di-load otomatis dari JSON -->
+</div>
+        </div>
+
+        <!-- Modal Sertifikat -->
+        <div
+          id="certificateModal"
+          class="fixed inset-0 hidden bg-black bg-opacity-60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+        >
+          <div
+            class="bg-white rounded-2xl shadow-2xl max-w-3xl w-full overflow-hidden animate-fadeIn relative"
+          >
+            <!-- Tombol Tutup -->
+            <button
+              onclick="closeCertificateModal()"
+              class="absolute top-3 right-3 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-full p-2 transition"
+              aria-label="Close Modal"
+            >
+              ✕
+            </button>
+
+            <div class="p-6 text-center">
+              <div id="modalContent" class="mb-4 rounded-lg overflow-hidden"></div>
+
+              <h3 id="modalTitle" class="text-2xl font-bold text-gray-800 mb-2"></h3>
+              <p class="text-gray-600 text-sm mb-1">
+                <strong>Tahun Diperoleh:</strong> <span id="modalYear"></span>
+              </p>
+              <p class="text-gray-600 text-sm mb-4">
+                <strong>Berlaku hingga:</strong> <span id="modalExpired"></span>
+              </p>
+              <p id="modalDescription" class="text-gray-700 mb-4"></p>
+
+              <!-- Tombol Download -->
+              <!-- <a
+                id="downloadLink"
+                href="#"
+                download
+                class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium px-5 py-2 rounded-full transition"
+              >
+                <i class="fas fa-download"></i> Download Sertifikat
+              </a> -->
+              <a
+                id="downloadLink"
+                class="mt-4 inline-block bg-blue-600 text-white font-medium px-5 py-2 rounded-lg hover:bg-blue-700 transition"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Download Sertifikat
+              </a>
+            </div>
+          </div>
+        </div>
+
+          
       </div>
     </section>
 
@@ -539,91 +630,34 @@
       </div>
     </section>
 
-    <!-- Certificate Section -->
-    <section id="certificate" class="py-16 bg-gray-100">
+    <!-- Blog Section -->
+    <section id="blog" class="py-16 bg-gray-100">
       <div class="container max-w-6xl mx-auto px-6 lg:px-12">
         <h2
           class="section-title text-3xl font-bold text-blue-600 mb-8"
           data-aos="fade-up"
         >
-          Sertifikasi
+          Blog & Artikel
         </h2>
 
-        <!-- Grid Sertifikat -->
+        <!-- Grid Blog -->
         <div
           class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
-          id="certificateGrid"
-        >
-          <!-- Card Sertifikat -->
-          <div
-            class="bg-white rounded-xl shadow-md overflow-hidden cursor-pointer hover:shadow-xl transition"
-            onclick="openCertificateModal('AWS Cloud Practitioner', '2023', '2026', 'Sertifikasi AWS Cloud Practitioner membuktikan kemampuan dasar cloud computing.', 'assets/sertifikat/test.png', false)"
-          >
-            <div
-              class="h-48 bg-gray-200 flex items-center justify-center overflow-hidden"
-            >
-              <img
-                src="assets/sertifikat/test.png"
-                alt="AWS Cloud Practitioner"
-                class="object-contain h-full w-full"
-              />
-            </div>
-            <div class="p-4">
-              <h3 class="text-lg font-semibold text-gray-800">
-                AWS Cloud Practitioner
-              </h3>
-            </div>
-          </div>
+          id="blogGrid"
+        ></div>
 
-          <div
-            class="bg-white rounded-xl shadow-md overflow-hidden cursor-pointer hover:shadow-xl transition"
-            onclick="openCertificateModal('Sertifikat Web Security', '2023', '2026', 'Sertifikasi keamanan web.', 'assets/sertifikat/test.pdf', true)"
-          >
-            <div
-              class="h-48 bg-gray-200 flex items-center justify-center overflow-hidden"
-            >
-              <canvas id="thumb1" class="object-contain h-full w-full"></canvas>
-            </div>
-            <div class="p-4">
-              <h3 class="text-lg font-semibold text-gray-800">
-                Sertifikat Web Security
-              </h3>
-            </div>
-          </div>
-
-          <!-- Tambahkan lagi sesuai kebutuhan -->
-        </div>
-      </div>
-
-      <!-- Modal Sertifikat -->
-      <div
-        id="certificateModal"
-        class="fixed inset-0 hidden bg-black bg-opacity-50 z-50 flex items-center justify-center p-4"
-      >
-        <div class="bg-white rounded-xl max-w-4xl w-full shadow-lg relative">
+        <!-- Tombol Show More -->
+        <div class="text-center mt-10">
           <button
-            onclick="closeCertificateModal()"
-            class="absolute top-2 right-2 text-gray-600 hover:text-gray-800 text-xl"
+            id="loadMoreBtn"
+            class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
           >
-            &times;
+            Tampilkan Lebih Banyak
           </button>
-          <div class="p-6 text-center">
-            <div id="modalContent"></div>
-            <h3
-              id="modalTitle"
-              class="text-2xl font-bold text-gray-800 mt-4"
-            ></h3>
-            <p class="text-gray-600 mb-1">
-              <strong>Tahun Diperoleh:</strong> <span id="modalYear"></span>
-            </p>
-            <p class="text-gray-600 mb-3">
-              <strong>Expired:</strong> <span id="modalExpired"></span>
-            </p>
-            <p id="modalDescription" class="text-gray-700"></p>
-          </div>
         </div>
       </div>
-    </section>
+    </section>  
+
 
     <!-- Contact Section -->
     <section
@@ -688,5 +722,22 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
     <script src="assets/script.js"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Salman Mustapa",
+        "url": "https://salman-mustapa.github.io",
+        "sameAs": [
+          "https://github.com/salman-mustapa",
+          "https://id.linkedin.com/in/salman-mustapa-0b4997284/"
+        ],
+        "jobTitle": "Network Engineer & Software Engineer",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Freelancer / Open Source"
+        }
+      }
+    </script>
   </body>
 </html>
