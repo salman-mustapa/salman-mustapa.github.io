@@ -165,8 +165,165 @@ document.getElementById("loadMoreBtn").addEventListener("click", () => {
   renderBlogs();
 });
 
+
 // ==========================
-// 7. Certificate Modal (Preview Sertifikat)
+// 7. Experience
+// ==========================
+const LIMIT = 3;
+let current = 0;
+let experiences = [];
+
+function renderExperiences() {
+    const container = document.getElementById('timeline');
+    container.innerHTML = '';
+
+    const visible = experiences.slice(0, current);
+    visible.forEach((exp, index) => {
+    const side = index % 2 === 0 ? 'timeline-left' : 'timeline-right';
+    const aos = index % 2 === 0 ? 'fade-right' : 'fade-left';
+    const tasks = exp.tasks.map(t => `<li>${t}</li>`).join('');
+
+    container.innerHTML += `
+        <div class="timeline-item relative flex justify-${index % 2 === 0 ? 'start' : 'end'} items-start" data-aos="${aos}" data-aos-delay="${index * 100}">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card ${side}">
+            <h3 class="text-xl font-bold text-blue-700">${exp.position}</h3>
+            <p class="text-gray-500 text-sm mb-2">${exp.company} • ${exp.period}</p>
+            <ul class="list-disc list-inside text-gray-700 mb-3">${tasks}</ul>
+            <div class="bg-gray-100 border rounded-lg p-3 text-sm text-gray-700">
+            <span class="font-semibold">Contact:</span> ${exp.contact_name}
+            <a href="${exp.contact_link}" class="text-blue-600 font-medium hover:underline" target="_blank">
+                ${exp.contact_phone}
+            </a>
+            </div>
+        </div>
+        </div>
+    `;
+    });
+
+    document.getElementById('load-more').style.display =
+    current >= experiences.length ? 'none' : 'inline-block';
+}
+
+fetch('assets/data/experiences.json')
+    .then(res => res.json())
+    .then(data => {
+    experiences = data;
+    current = LIMIT;
+    renderExperiences();
+    })
+    .catch(err => console.error('Gagal memuat pengalaman:', err));
+
+document.getElementById('load-more').addEventListener('click', () => {
+    current += LIMIT;
+    renderExperiences();
+});
+
+
+// ==========================
+// 8. Projects
+// ==========================
+
+const projectContainer = document.getElementById('project-list');
+const modal = document.getElementById('project-modal');
+const modalContent = document.getElementById('modal-content');
+const closeModal = document.getElementById('close-modal');
+
+// 🔹 Load projects.json
+fetch('assets/data/projects.json')
+    .then(res => res.json())
+    .then(projects => {
+    projectContainer.innerHTML = projects.map((p, i) => `
+        <div class="project-card bg-white rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all overflow-hidden" data-aos="fade-up" data-aos-delay="${i * 100}">
+        <img src="${p.image}" alt="${p.title}" class="w-full h-48 object-cover bg-gray-100" onerror="this.onerror=null;this.src='assets/img/gambar-default.png';" />
+        <div class="p-6">
+            <h3 class="text-xl font-semibold text-blue-700 mb-2">${p.title}</h3>
+            <p class="text-gray-600 mb-3">${p.description}</p>
+            <button onclick="openProjectModal('${p.id}')" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">Lihat Detail</button>
+        </div>
+        </div>
+    `).join('');
+
+    // Simpan ke window agar mudah diakses saat buka modal
+    window.projectsData = projects;
+    })
+    .catch(err => {
+    console.error('Gagal memuat projects.json:', err);
+    projectContainer.innerHTML = `<p class='text-center text-red-500'>Gagal memuat proyek 😔</p>`;
+    });
+
+// 🔹 Fungsi buka modal
+function openProjectModal(id) {
+    const p = window.projectsData.find(x => x.id === id);
+    if (!p) return;
+
+    modalContent.innerHTML = `
+    <img src="${p.image}" alt="${p.title}" class="w-full max-h-[400px] object-cover rounded-xl mb-6 bg-gray-100" onerror="this.onerror=null;this.src='assets/img/gambar-default.png';" />
+    <h3 class="text-2xl font-bold text-blue-700 mb-2">${p.title}</h3>
+    <p class="text-gray-700 mb-3">${p.details}</p>
+    <p class="text-gray-600 text-sm mb-4"><strong>Teknologi:</strong> ${p.tech}</p>
+    <div class="flex gap-3">
+        <a href="${p.preview_url}" target="_blank" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">Lihat Demo</a>
+        <a href="${p.source_url}" target="_blank" class="px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-lg text-gray-700 transition">Lihat Source</a>
+    </div>
+    `;
+    modal.classList.remove('hidden');
+}
+
+closeModal.addEventListener('click', () => modal.classList.add('hidden'));
+modal.addEventListener('click', e => { if (e.target === modal) modal.classList.add('hidden'); });
+
+
+// ==========================
+// 9. Education
+// ==========================
+fetch("assets/data/education.json")
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById("education-list");
+
+        container.innerHTML = data.map((edu, index) => `
+          <div class="relative flex flex-col md:flex-row md:items-start" data-aos="fade-up" data-aos-delay="${index * 100}">
+            
+            <!-- Titik timeline -->
+            <div class="hidden md:flex items-center justify-center absolute left-1/2 transform -translate-x-1/2 bg-blue-600 text-white rounded-full w-7 h-7 shadow-md z-10">
+              <i class="fas fa-graduation-cap text-xs"></i>
+            </div>
+
+            <!-- Konten -->
+            <div class="w-full md:w-1/2 ${index % 2 === 0 ? 'md:pl-20 md:ml-auto' : 'md:pr-20 md:mr-auto'}">
+              <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition-all border border-blue-50">
+                <h3 class="text-xl font-semibold text-blue-700">${edu.degree}</h3>
+                <p class="text-gray-500">${edu.institution}, ${edu.year}</p>
+
+                <ul class="mt-3 space-y-2 text-gray-700">
+                  ${edu.details.map(detail => `
+                    <li>
+                      <strong>${detail.label}:</strong> 
+                      ${detail.value ? detail.value : ''}
+                      ${detail.subitems ? `
+                        <ul class="list-disc list-inside ml-4 mt-1 text-gray-600">
+                          ${detail.subitems.map(sub => `
+                            <li><span class="font-medium">${sub.name}</span> – ${sub.role}</li>
+                          `).join('')}
+                        </ul>
+                      ` : ''}
+                    </li>
+                  `).join('')}
+                </ul>
+              </div>
+            </div>
+          </div>
+        `).join('');
+      })
+      .catch(err => {
+        console.error("Gagal memuat education.json:", err);
+        document.getElementById("education-list").innerHTML =
+          `<p class='text-center text-red-500'>Gagal memuat data pendidikan 😔</p>`;
+      });
+
+// ==========================
+// 10. Certificate Modal (Preview Sertifikat)
 // ==========================
 function openCertificateModal(title, year, expired, description, file, isPdf = false) {
   document.getElementById("modalTitle").innerText = title;
@@ -247,7 +404,7 @@ document.addEventListener("DOMContentLoaded", loadCertificates);
 
 
 // ==========================
-// 8. PDF.js → Render Thumbnail Sertifikat (halaman pertama PDF)
+// 11. PDF.js → Render Thumbnail Sertifikat (halaman pertama PDF)
 // ==========================
 // const url = "assets/sertifikat/test.pdf";
 const canvas = document.getElementById("thumb1");
@@ -262,3 +419,4 @@ pdfjsLib.getDocument(url).promise.then(pdf => {
         page.render({ canvasContext: context, viewport: viewport });
     });
 });
+

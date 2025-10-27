@@ -1,0 +1,22 @@
+[
+  {
+    "id": "project1",
+    "title": "Sistem Manajemen Inventori",
+    "description": "Aplikasi berbasis Laravel untuk mengelola stok barang dengan fitur CRUD, autentikasi pengguna, dan laporan MySQL.",
+    "details": "Aplikasi ini memungkinkan pengguna untuk mengelola stok barang dengan fitur pembaruan real-time, autentikasi Laravel, dan laporan MySQL. Antarmuka dibangun menggunakan Bootstrap agar responsif.",
+    "tech": "Laravel, MySQL, Bootstrap, REST API",
+    "image": "https://image.thum.io/get/width/600/https://siat.ung.ac.id",
+    "preview_url": "https://siat.ung.ac.id",
+    "source_url": "https://github.com/salman-mustapa/inventori-system"
+  },
+  {
+    "id": "project2",
+    "title": "Sistem Monitoring Jaringan",
+    "description": "Dashboard berbasis Flask dan Chart.js untuk memantau status jaringan dan perangkat Mikrotik.",
+    "details": "Menampilkan data jaringan real-time menggunakan API dan socket. Dapat menampilkan status perangkat, ping otomatis, dan alarm peringatan.",
+    "tech": "Flask, Chart.js, Python, Mikrotik API",
+    "image": "https://image.thum.io/get/width/600/https://network-dashboard.example.com",
+    "preview_url": "https://network-dashboard.example.com",
+    "source_url": "https://github.com/salman-mustapa/network-monitor"
+  }
+]
