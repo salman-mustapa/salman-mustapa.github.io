@@ -1,26 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://salman-mustapa.github.io/</loc>
     <priority>1.0</priority>
   </url>
-
-  <!-- Subprojek / tulisan -->
   <url>
     <loc>https://salman-mustapa.github.io/sentinelone-docs/</loc>
   </url>
   <url>
     <loc>https://salman-mustapa.github.io/laravel-docs/</loc>
-  <url>
+  </url>
   <url>
     <loc>https://salman-mustapa.github.io/github-setup/</loc>
   </url>
   <url>
     <loc>https://salman-mustapa.github.io/glossary-tech/</loc>
   </url>
+  <url>
     <loc>https://salman-mustapa.github.io/s1-docs/</loc>
-  </url>
   </url>
 </urlset>
