@@ -144,9 +144,7 @@ function renderBlogs() {
         <p class="text-gray-500 text-sm mb-2">${blog.date} • ${blog.author}</p>
         <p class="text-gray-600 text-sm">${blog.description}</p>
         <a href="${blog.url}" target="_blank" type="button"
-              class="mt-4 inline-block bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition"
-              data-modal-target="project1-modal"
-              data-modal-toggle="project1-modal">Baca Selengkapnya</a>
+              class="mt-4 inline-block bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition">Baca Selengkapnya</a>
       </div>
     `;
     card.addEventListener("click", () => openBlogModal(blog));
@@ -334,12 +332,10 @@ function openCertificateModal(title, year, expired, description, file, isPdf = f
   const modalContent = document.getElementById("modalContent");
   const downloadLink = document.getElementById("downloadLink");
 
-  // ✅ Pastikan path absolut tapi tanpa querySelector
   const fileUrl = file.startsWith("http")
     ? file
     : `${window.location.origin}${window.location.pathname.replace(/\/[^/]*$/, "/")}${file.replace(/^\.\//, "")}`;
 
-  // ✅ Render konten
   if (isPdf) {
     modalContent.innerHTML = `
       <iframe src="${fileUrl}" class="w-full h-96 rounded-md border border-gray-200 shadow-md"></iframe>
@@ -350,11 +346,9 @@ function openCertificateModal(title, year, expired, description, file, isPdf = f
     `;
   }
 
-  // ✅ Atur link download — tidak pakai querySelector apapun
   downloadLink.href = fileUrl;
   downloadLink.download = title.replace(/\s+/g, "_");
 
-  // ✅ Tampilkan modal
   document.getElementById("certificateModal").classList.remove("hidden");
 }
 
@@ -362,29 +356,30 @@ function closeCertificateModal() {
   document.getElementById("certificateModal").classList.add("hidden");
 }
 
+// ==========================
+// 10b. Load Certificates (aman dari error)
+// ==========================
 async function loadCertificates() {
   try {
     const response = await fetch("assets/data/certificates.json");
     const data = await response.json();
 
     const container = document.getElementById("skillsCertificateGrid");
-    container.innerHTML = ""; // kosongkan dulu
+    container.innerHTML = "";
 
     data.forEach(cert => {
       const card = document.createElement("div");
       card.className =
         "bg-white p-5 rounded-xl shadow hover:shadow-lg cursor-pointer transition";
-      card.setAttribute(
-        "onclick",
-        `openCertificateModal(
-          '${cert.title.replace(/'/g, "\\'")}',
-          '${cert.release}',
-          '${cert.expired}',
-          '${cert.description.replace(/'/g, "\\'")}',
-          '${cert.file}',
-          ${cert.isPdf}
-        )`
-      );
+      card.onclick = () =>
+        openCertificateModal(
+          cert.title,
+          cert.release,
+          cert.expired,
+          cert.description,
+          cert.file,
+          cert.isPdf
+        );
 
       card.innerHTML = `
         <div class="flex items-center justify-between">
@@ -399,24 +394,23 @@ async function loadCertificates() {
   }
 }
 
-// Jalankan saat halaman selesai dimuat
 document.addEventListener("DOMContentLoaded", loadCertificates);
 
-
 // ==========================
-// 11. PDF.js → Render Thumbnail Sertifikat (halaman pertama PDF)
+// 11. Optional Thumbnail PDF.js (aman & tidak ganggu)
 // ==========================
-// const url = "assets/sertifikat/test.pdf";
-const canvas = document.getElementById("thumb1");
-const context = canvas.getContext("2d");
+document.addEventListener("DOMContentLoaded", () => {
+  const canvas = document.getElementById("thumb1");
+  if (!canvas || typeof pdfjsLib === "undefined") return; // ✅ aman
 
-pdfjsLib.getDocument(url).promise.then(pdf => {
-    pdf.getPage(1).then(page => {
-        const viewport = page.getViewport({ scale: 0.5 });
-        canvas.height = viewport.height;
-        canvas.width = viewport.width;
-
-        page.render({ canvasContext: context, viewport: viewport });
-    });
+  pdfjsLib.getDocument(url).promise
+    .then(pdf => pdf.getPage(1))
+    .then(page => {
+      const viewport = page.getViewport({ scale: 0.5 });
+      canvas.height = viewport.height;
+      canvas.width = viewport.width;
+      page.render({ canvasContext: context, viewport });
+    })
+    .catch(err => console.warn("PDF.js tidak aktif:", err.message));
 });
 

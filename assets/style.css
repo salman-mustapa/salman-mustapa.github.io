@@ -238,7 +238,7 @@ body {
 }
 
 /* ✅ Responsif untuk Mobile */
-@media (max-width: 768px) {
+@media (max-width: 769px) {
     .timeline-card {
     width: 100%;
     margin-left: 2.5rem;
@@ -262,6 +262,30 @@ body {
     }
 }
 
+@media (max-width: 768px) {
+    .timeline-card {
+    width: 100%;
+    margin-left: 2.5rem;
+    }
+
+    .timeline-dot {
+    left: -0.45rem;
+    transform: none;
+    }
+
+    .timeline-item {
+    flex-direction: row;
+    }
+
+    #timeline-line {
+    display: none;
+    }
+
+    #timeline-line-mobile {
+    display: block;
+    }
+}
+
 #blogModal::-webkit-scrollbar {
   width: 8px;
 }
@@ -269,4 +293,3 @@ body {
   background-color: #cbd5e1;
   border-radius: 4px;
 }
-
