@@ -1,39 +1,154 @@
 /* ==========================
+   CSS Variables for Theme
+========================== */
+:root {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #f1f5f9;
+  --bg-card: rgba(255, 255, 255, 0.7);
+  --bg-card-hover: rgba(255, 255, 255, 0.85);
+  --text-primary: #1e293b;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+  --border: rgba(0, 0, 0, 0.1);
+  --navbar-bg: rgba(255, 255, 255, 0.8);
+  --modal-bg: rgba(255, 255, 255, 0.95);
+  --timeline-line: #cbd5e1;
+  --timeline-dot: #3b82f6;
+  --gradient-start: #f8fafc;
+  --gradient-end: #e2e8f0;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-card: rgba(30, 41, 59, 0.7);
+  --bg-card-hover: rgba(30, 41, 59, 0.85);
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --accent: #38bdf8;
+  --accent-hover: #0ea5e9;
+  --border: rgba(255, 255, 255, 0.1);
+  --navbar-bg: rgba(15, 23, 42, 0.8);
+  --modal-bg: rgba(15, 23, 42, 0.95);
+  --timeline-line: #334155;
+  --timeline-dot: #38bdf8;
+  --gradient-start: #0f172a;
+  --gradient-end: #1e293b;
+}
+
+[data-theme="light"] {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #f1f5f9;
+  --bg-card: rgba(255, 255, 255, 0.7);
+  --bg-card-hover: rgba(255, 255, 255, 0.85);
+  --text-primary: #1e293b;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+  --border: rgba(0, 0, 0, 0.1);
+  --navbar-bg: rgba(255, 255, 255, 0.8);
+  --modal-bg: rgba(255, 255, 255, 0.95);
+  --timeline-line: #cbd5e1;
+  --timeline-dot: #3b82f6;
+  --gradient-start: #f8fafc;
+  --gradient-end: #e2e8f0;
+}
+
+/* ==========================
    Base Style
 ========================== */
 body {
     font-family: 'Quicksand', sans-serif;
-    background-color: #f9fafb;
-    color: #1f2937;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: var(--text-primary);
     line-height: 1.6;
+    min-height: 100vh;
+    transition: all 0.3s ease;
+}
+
+/* ==========================
+   Card Transparent Style
+========================== */
+.card-transparent {
+    background: var(--bg-card) !important;
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+}
+
+.card-transparent:hover {
+    background: var(--bg-card-hover) !important;
+    transform: translateY(-5px);
+}
+
+.modal-transparent {
+    background: var(--modal-bg) !important;
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--border);
+}
+
+/* ==========================
+   Theme Toggle
+========================== */
+.theme-toggle-mobile {
+    transition: all 0.3s ease;
+}
+
+.theme-btn, .theme-btn-mobile {
+    transition: all 0.2s ease;
+}
+
+.theme-btn:hover, .theme-btn-mobile:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.theme-btn.active, .theme-btn-mobile.active {
+    background-color: var(--accent);
+    color: white;
 }
 
 /* ==========================
    Navbar Top (Desktop)
 ========================== */
 .navbar-top {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
+    background: var(--navbar-bg);
+    backdrop-filter: blur(15px);
+    z-index: 40;
     position: sticky;
     top: 0;
+    border-bottom: 1px solid var(--border);
+    transition: all 0.3s ease;
 }
 
 .navbar-top .nav-link {
-    transition: color 0.3s ease, transform 0.3s ease;
+    transition: all 0.3s ease;
     padding: 0.75rem 1rem;
+    color: var(--text-primary);
+    position: relative;
 }
 
 .navbar-top .nav-link:hover {
-    color: #3b82f6;
+    color: var(--accent);
     transform: translateY(-2px);
 }
 
 .navbar-top .nav-link.active {
-    color: #3b82f6;
+    color: var(--accent);
     font-weight: 600;
-    border-bottom: 2px solid #3b82f6;
+}
+
+.navbar-top .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    width: 50%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
 }
 
 /* ==========================
@@ -45,11 +160,12 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(12px);
-    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.05);
-    z-index: 1000;
+    background: var(--navbar-bg);
+    backdrop-filter: blur(15px);
+    z-index: 40;
     padding: 10px 0;
+    border-top: 1px solid var(--border);
+    transition: all 0.3s ease;
 }
 
 .navbar-bottom .nav-link {
@@ -57,7 +173,7 @@ body {
     flex-direction: column;
     align-items: center;
     font-size: 0.75rem;
-    color: #4b5563;
+    color: var(--text-muted);
     transition: all 0.3s ease;
     padding: 6px 10px;
     position: relative;
@@ -82,12 +198,12 @@ body {
 }
 
 .navbar-bottom .nav-link:hover {
-    color: #2563eb;
+    color: var(--accent);
     transform: scale(1.05);
 }
 
 .navbar-bottom .nav-link.active {
-    color: #2563eb;
+    color: var(--accent);
     font-weight: 600;
 }
 
@@ -95,19 +211,20 @@ body {
    Hero Section
 ========================== */
 .hero {
-    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-    color: white;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: var(--text-primary);
     position: relative;
     overflow: hidden;
     padding: 6rem 1rem;
     text-align: center;
+    transition: all 0.3s ease;
 }
 
 .hero::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"%3E%3Cpath fill="%23ffffff" fill-opacity="0.2" d="M0,128L48,144C96,160,192,192,288,181.3C384,171,480,117,576,106.7C672,96,768,128,864,149.3C960,171,1056,181,1152,181.3C1248,181,1344,171,1392,165.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"%3E%3C/path%3E%3C/svg%3E');
+    background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"%3E%3Cpath fill="%23000000" fill-opacity="0.05" d="M0,128L48,144C96,160,192,192,288,181.3C384,171,480,117,576,106.7C672,96,768,128,864,149.3C960,171,1056,181,1152,181.3C1248,181,1344,171,1392,165.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"%3E%3C/path%3E%3C/svg%3E');
     background-size: cover;
     opacity: 0.3;
 }
@@ -121,6 +238,7 @@ body {
     margin-bottom: 2rem;
     font-weight: 600;
     font-size: 1.5rem;
+    color: var(--accent);
 }
 
 .section-title::after {
@@ -130,7 +248,28 @@ body {
     left: 0;
     width: 50%;
     height: 3px;
-    background: #3b82f6;
+    background: linear-gradient(90deg, var(--accent), transparent);
+}
+
+/* ==========================
+   Section Backgrounds
+========================== */
+#skills, #experience, #education, #projects, #blog, #contact {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    transition: all 0.3s ease;
+}
+
+/* ==========================
+   Card Styles Override
+========================== */
+.bg-white {
+    background: var(--bg-card) !important;
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+}
+
+.bg-gray-100 {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)) !important;
 }
 
 /* ==========================
@@ -149,7 +288,7 @@ body {
     position: absolute;
     left: 0;
     top: 0.5rem;
-    color: #3b82f6;
+    color: var(--accent);
     font-size: 1.25rem;
 }
 
@@ -169,6 +308,122 @@ body {
 }
 
 /* ==========================
+   Timeline
+========================== */
+#timeline-line, #timeline-line-mobile {
+    background: linear-gradient(to bottom, var(--timeline-line), transparent);
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 18px;
+    height: 18px;
+    background: var(--timeline-dot);
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.6);
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.timeline-card {
+    position: relative;
+    width: 48%;
+    background: var(--bg-card) !important;
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.timeline-card:hover {
+    transform: translateY(-6px);
+    background: var(--bg-card-hover) !important;
+}
+
+.timeline-left {
+    margin-right: auto;
+}
+
+.timeline-right {
+    margin-left: auto;
+}
+
+/* ==========================
+   Buttons
+========================== */
+.bg-blue-600 {
+    background-color: var(--accent) !important;
+}
+
+.bg-blue-600:hover {
+    background-color: var(--accent-hover) !important;
+}
+
+.bg-blue-900 {
+    background-color: var(--accent) !important;
+}
+
+.bg-blue-900:hover {
+    background-color: var(--accent-hover) !important;
+}
+
+/* ==========================
+   Form Elements
+========================== */
+input, textarea {
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border) !important;
+    color: var(--text-primary) !important;
+}
+
+input:focus, textarea:focus {
+    background: var(--bg-card-hover) !important;
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.3) !important;
+}
+
+/* ==========================
+   Text Colors
+========================== */
+.text-gray-600 {
+    color: var(--text-secondary) !important;
+}
+
+.text-gray-700 {
+    color: var(--text-primary) !important;
+}
+
+.text-gray-800 {
+    color: var(--text-primary) !important;
+}
+
+.text-gray-500 {
+    color: var(--text-muted) !important;
+}
+
+.text-blue-600 {
+    color: var(--accent) !important;
+}
+
+.text-blue-700 {
+    color: var(--accent-hover) !important;
+}
+
+.text-blue-500 {
+    color: var(--accent) !important;
+}
+
+/* ==========================
+   Modal
+========================== */
+#certificateModal, #project-modal {
+    background: rgba(0, 0, 0, 0.5) !important;
+}
+
+/* ==========================
    Responsive
 ========================== */
 @media (max-width: 768px) {
@@ -185,7 +440,7 @@ body {
 
 @media (min-width: 1024px) {
   .hero .container {
-    margin-top: 4rem; /* atur sesuai kebutuhan */
+    margin-top: 4rem;
   }
 }
 
@@ -197,47 +452,7 @@ body {
     .navbar-bottom .nav-link i { font-size: 1rem; }
 }
 
-/* Timeline */
-.timeline-dot {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 18px;
-    height: 18px;
-    background: linear-gradient(135deg, #2563eb, #60a5fa);
-    border-radius: 50%;
-    box-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
-    /* border: 3px solid white; */
-    transition: all 0.3s ease;
-    z-index: 10;
-}
-
-.timeline-card {
-    position: relative;
-    width: 48%;
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 20px;
-    padding: 1.5rem;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-}
-
-.timeline-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 14px 30px rgba(59, 130, 246, 0.2);
-}
-
-.timeline-left {
-    margin-right: auto;
-}
-
-.timeline-right {
-    margin-left: auto;
-}
-
-/* ✅ Responsif untuk Mobile */
+/* Timeline Mobile */
 @media (max-width: 769px) {
     .timeline-card {
     width: 100%;
@@ -290,6 +505,6 @@ body {
   width: 8px;
 }
 #blogModal::-webkit-scrollbar-thumb {
-  background-color: #cbd5e1;
+  background-color: var(--accent);
   border-radius: 4px;
 }

@@ -1,18 +1,49 @@
 [
   {
-    "title": "AWS Cloud Practitioner",
+    "title": "Computer Network",
+    "institution": "Course NET",
     "release": "2023",
     "expired": "2026",
-    "description": "Sertifikasi AWS Cloud Practitioner membuktikan kemampuan dasar cloud computing.",
-    "file": "assets/sertifikat/test.png",
-    "isPdf": false
+    "description": [
+      "Sertifikasi Computer Netowork And System Techinicians dalam melakukan Perancangan, Pengelolaan dan Pemeliharaan Jaringan Komputer menggunakan Metode Jaringan dari CISCO bagi Network Specialist (Cisco) sebagai Teknisi Jaringan Komputer dan Sistem (Computer Network and System Technicians)"
+    ],
+    "file": "assets/document/course_net_cisco.pdf",
+    "isPdf": true
   },
   {
-    "title": "Sertifikat Web Security",
+    "title": "Junior Network Administrator",
+    "institution": "BNSP (Badan Nasional Sertifikasi Profesi)",
     "release": "2023",
     "expired": "2026",
-    "description": "Sertifikasi keamanan web.",
-    "file": "assets/sertifikat/voucher.pdf",
+    "description": "Sertifikasi Administrasi Jaringan Komputer dalam melakukan perancangan jaringan, pemasangan perangkat jaringan, konfigurasi perangkat jaringan, dan melakukan routing antar perangkat jaringan",
+    "file": "assets/document/bnsp.pdf",
+    "isPdf": true
+  },
+  {
+    "title": "Role Management",
+    "institution": "Codepolitan",
+    "release": "2023",
+    "expired": "2026",
+    "description": "Sertifikasi role management menggunakan framework laravel dalam membangun sistem yang aman",
+    "file": "assets/document/code_politan_laravel.pdf",
+    "isPdf": true
+  },
+  {
+    "title": "Cloud AWS Dasar",
+    "institution": "Dicoding",
+    "release": "2023",
+    "expired": "2026",
+    "description": "Sertifikasi pengenalan Cloud AWS (Amazon Web Services) dalam mengelola jaringan, server dan infrastruktur dari AWS",
+    "file": "assets/document/dicoding_aws.pdf",
+    "isPdf": true
+  },
+  {
+    "title": "Hak Cipta Aplikasi",
+    "institution": "Kementerian Hukum dan HAM",
+    "release": "2023",
+    "expired": "2073",
+    "description": "Sertifikat Hak Cipta Aplikasi Pengelolaan Sarana Prasana Laboratorium Berbasis Android dan Web",
+    "file": "assets/document/haki.pdf",
     "isPdf": true
   }
 ]

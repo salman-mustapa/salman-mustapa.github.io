@@ -7,7 +7,143 @@ AOS.init({
 });
 
 // ==========================
-// 2. Smooth Scroll ketika klik anchor link (#)
+// 2. Theme Management
+// ==========================
+// Check for saved theme preference or default to 'system'
+const currentTheme = localStorage.getItem('theme') || 'system';
+if (currentTheme === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+} else if (currentTheme === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+} else {
+    // System default
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+    }
+}
+
+// Update active theme button
+function updateThemeButtons() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    
+    // Desktop buttons
+    document.querySelectorAll('.theme-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    
+    if (currentTheme === 'dark') {
+        document.getElementById('theme-dark').classList.add('active');
+    } else if (currentTheme === 'light') {
+        document.getElementById('theme-light').classList.add('active');
+    } else {
+        document.getElementById('theme-system').classList.add('active');
+    }
+    
+    // Mobile buttons
+    document.querySelectorAll('.theme-btn-mobile').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    
+    if (currentTheme === 'dark') {
+        document.getElementById('theme-dark-mobile').classList.add('active');
+    } else if (currentTheme === 'light') {
+        document.getElementById('theme-light-mobile').classList.add('active');
+    } else {
+        document.getElementById('theme-system-mobile').classList.add('active');
+    }
+}
+
+// Set theme function
+function setTheme(theme) {
+    if (theme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    } else if (theme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+    } else {
+        // System default
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+        }
+    }
+    
+    // Save preference
+    localStorage.setItem('theme', theme);
+    
+    // Update buttons
+    updateThemeButtons();
+}
+
+// Desktop theme toggle event listeners
+document.getElementById('theme-light').addEventListener('click', () => {
+    setTheme('light');
+    document.getElementById('theme-options-desktop').classList.add('hidden');
+});
+document.getElementById('theme-dark').addEventListener('click', () => {
+    setTheme('dark');
+    document.getElementById('theme-options-desktop').classList.add('hidden');
+});
+document.getElementById('theme-system').addEventListener('click', () => {
+    setTheme('system');
+    document.getElementById('theme-options-desktop').classList.add('hidden');
+});
+
+// Mobile theme toggle event listeners
+document.getElementById('theme-light-mobile').addEventListener('click', () => {
+    setTheme('light');
+    document.getElementById('theme-options').classList.add('hidden');
+});
+document.getElementById('theme-dark-mobile').addEventListener('click', () => {
+    setTheme('dark');
+    document.getElementById('theme-options').classList.add('hidden');
+});
+document.getElementById('theme-system-mobile').addEventListener('click', () => {
+    setTheme('system');
+    document.getElementById('theme-options').classList.add('hidden');
+});
+
+// Desktop theme toggle button
+document.getElementById('theme-toggle-desktop').addEventListener('click', () => {
+    document.getElementById('theme-options-desktop').classList.toggle('hidden');
+});
+
+// Mobile FAB toggle
+document.getElementById('theme-toggle-fab').addEventListener('click', () => {
+    document.getElementById('theme-options').classList.toggle('hidden');
+});
+
+// Close theme options when clicking outside
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('#theme-toggle-desktop') && !e.target.closest('#theme-options-desktop')) {
+        document.getElementById('theme-options-desktop').classList.add('hidden');
+    }
+    
+    if (!e.target.closest('#theme-toggle-fab') && !e.target.closest('#theme-options')) {
+        document.getElementById('theme-options').classList.add('hidden');
+    }
+});
+
+// Initialize theme buttons
+updateThemeButtons();
+
+// Listen for system theme changes
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme === 'system') {
+        if (e.matches) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+        }
+        updateThemeButtons();
+    }
+});
+
+// ==========================
+// 3. Smooth Scroll ketika klik anchor link (#)
 // ==========================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
@@ -24,7 +160,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // ==========================
-// 3. Navbar Bottom → Active Link ketika diklik
+// 4. Navbar Bottom → Active Link ketika diklik
 // ==========================
 document.querySelectorAll('.navbar-bottom .nav-link').forEach(link => {
     link.addEventListener('click', function() {
@@ -35,7 +171,7 @@ document.querySelectorAll('.navbar-bottom .nav-link').forEach(link => {
 });
 
 // ==========================
-// 4. Navbar Top → Highlight Active Link saat scroll (Intersection Observer)
+// 5. Navbar Top → Highlight Active Link saat scroll (Intersection Observer)
 // ==========================
 document.addEventListener("DOMContentLoaded", function () {
     const sections = document.querySelectorAll("section[id]");
@@ -61,7 +197,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 // ==========================
-// 4b. Navbar Bottom → Highlight Active Link saat scroll (Intersection Observer)
+// 5b. Navbar Bottom → Highlight Active Link saat scroll (Intersection Observer)
 // ==========================
 document.addEventListener("DOMContentLoaded", function () {
     const sections = document.querySelectorAll("section[id]");
@@ -88,7 +224,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // ==========================
-// 5. Contact Form → Kirim ke WhatsApp
+// 6. Contact Form → Kirim ke WhatsApp
 // ==========================
 document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();
@@ -107,7 +243,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
 });
 
 // ==========================
-// 6. Blog
+// 7. Blog
 // ==========================
 
 let currentPage = 1;
@@ -134,7 +270,7 @@ function renderBlogs() {
   visibleBlogs.forEach(blog => {
     const card = document.createElement("div");
     card.className =
-      "bg-white rounded-xl shadow-md overflow-hidden cursor-pointer hover:shadow-xl transition";
+      "bg-white rounded-xl overflow-hidden cursor-pointer transition card-transparent";
     card.innerHTML = `
       <div class="h-48 bg-gray-200 overflow-hidden">
         <img src="${blog.thumbnail}" alt="${blog.title}" class="cover w-full h-full" />
@@ -165,7 +301,7 @@ document.getElementById("loadMoreBtn").addEventListener("click", () => {
 
 
 // ==========================
-// 7. Experience
+// 8. Experience
 // ==========================
 const LIMIT = 3;
 let current = 0;
@@ -184,11 +320,11 @@ function renderExperiences() {
     container.innerHTML += `
         <div class="timeline-item relative flex justify-${index % 2 === 0 ? 'start' : 'end'} items-start" data-aos="${aos}" data-aos-delay="${index * 100}">
         <div class="timeline-dot"></div>
-        <div class="timeline-card ${side}">
-            <h3 class="text-xl font-bold text-blue-700">${exp.position}</h3>
+        <div class="timeline-card card-transparent ${side}">
+            <h3 class="text-xl font-bold text-blue-600">${exp.position}</h3>
             <p class="text-gray-500 text-sm mb-2">${exp.company} • ${exp.period}</p>
-            <ul class="list-disc list-inside text-gray-700 mb-3">${tasks}</ul>
-            <div class="bg-gray-100 border rounded-lg p-3 text-sm text-gray-700">
+            <ul class="list-disc list-inside text-gray-600 mb-3">${tasks}</ul>
+            <div class="bg-gray-100 border rounded-lg p-3 text-sm text-gray-600">
             <span class="font-semibold">Contact:</span> ${exp.contact_name}
             <a href="${exp.contact_link}" class="text-blue-600 font-medium hover:underline" target="_blank">
                 ${exp.contact_phone}
@@ -219,7 +355,7 @@ document.getElementById('load-more').addEventListener('click', () => {
 
 
 // ==========================
-// 8. Projects
+// 9. Projects
 // ==========================
 
 const projectContainer = document.getElementById('project-list');
@@ -232,10 +368,10 @@ fetch('assets/data/projects.json')
     .then(res => res.json())
     .then(projects => {
     projectContainer.innerHTML = projects.map((p, i) => `
-        <div class="project-card bg-white rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all overflow-hidden" data-aos="fade-up" data-aos-delay="${i * 100}">
+        <div class="project-card card-transparent rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="${i * 100}">
         <img src="${p.image}" alt="${p.title}" class="w-full h-48 object-cover bg-gray-100" onerror="this.onerror=null;this.src='assets/img/gambar-default.png';" />
         <div class="p-6">
-            <h3 class="text-xl font-semibold text-blue-700 mb-2">${p.title}</h3>
+            <h3 class="text-xl font-semibold text-blue-600 mb-2">${p.title}</h3>
             <p class="text-gray-600 mb-3">${p.description}</p>
             <button onclick="openProjectModal('${p.id}')" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">Lihat Detail</button>
         </div>
@@ -257,9 +393,13 @@ function openProjectModal(id) {
 
     modalContent.innerHTML = `
     <img src="${p.image}" alt="${p.title}" class="w-full max-h-[400px] object-cover rounded-xl mb-6 bg-gray-100" onerror="this.onerror=null;this.src='assets/img/gambar-default.png';" />
-    <h3 class="text-2xl font-bold text-blue-700 mb-2">${p.title}</h3>
-    <p class="text-gray-700 mb-3">${p.details}</p>
-    <p class="text-gray-600 text-sm mb-4"><strong>Teknologi:</strong> ${p.tech}</p>
+    <h3 class="text-2xl font-bold text-blue-600 mb-2">${p.title}</h3>
+    <p class="text-gray-600 mb-3">
+      ${Array.isArray(p.details) 
+        ? `<ul class="list-disc pl-5 text-gray-600 mb-2">${p.details.map(d => `<li>${d}</li>`).join('')}</ul>` 
+        : p.details}
+    </p>
+    <p class="text-gray-500 text-sm mb-4"><strong>Teknologi:</strong> ${p.tech}</p>
     <div class="flex gap-3">
         <a href="${p.preview_url}" target="_blank" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">Lihat Demo</a>
         <a href="${p.source_url}" target="_blank" class="px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-lg text-gray-700 transition">Lihat Source</a>
@@ -273,7 +413,7 @@ modal.addEventListener('click', e => { if (e.target === modal) modal.classList.a
 
 
 // ==========================
-// 9. Education
+// 10. Education
 // ==========================
 fetch("assets/data/education.json")
       .then(res => res.json())
@@ -284,25 +424,25 @@ fetch("assets/data/education.json")
           <div class="relative flex flex-col md:flex-row md:items-start" data-aos="fade-up" data-aos-delay="${index * 100}">
             
             <!-- Titik timeline -->
-            <div class="hidden md:flex items-center justify-center absolute left-1/2 transform -translate-x-1/2 bg-blue-600 text-white rounded-full w-7 h-7 shadow-md z-10">
+            <div class="hidden md:flex items-center justify-center absolute left-1/2 transform -translate-x-1/2 bg-blue-600 text-white rounded-full w-7 h-7 z-10">
               <i class="fas fa-graduation-cap text-xs"></i>
             </div>
 
             <!-- Konten -->
             <div class="w-full md:w-1/2 ${index % 2 === 0 ? 'md:pl-20 md:ml-auto' : 'md:pr-20 md:mr-auto'}">
-              <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition-all border border-blue-50">
-                <h3 class="text-xl font-semibold text-blue-700">${edu.degree}</h3>
+              <div class="card-transparent p-6 rounded-2xl border border-blue-50">
+                <h3 class="text-xl font-semibold text-blue-600">${edu.degree}</h3>
                 <p class="text-gray-500">${edu.institution}, ${edu.year}</p>
 
-                <ul class="mt-3 space-y-2 text-gray-700">
+                <ul class="mt-3 space-y-2 text-gray-600">
                   ${edu.details.map(detail => `
                     <li>
                       <strong>${detail.label}:</strong> 
                       ${detail.value ? detail.value : ''}
                       ${detail.subitems ? `
-                        <ul class="list-disc list-inside ml-4 mt-1 text-gray-600">
+                        <ul class="list-disc list-inside ml-4 mt-1 text-gray-500">
                           ${detail.subitems.map(sub => `
-                            <li><span class="font-medium">${sub.name}</span> – ${sub.role}</li>
+                            <li><span class="font-medium">${sub.label}</span> – ${sub.value}</li>
                           `).join('')}
                         </ul>
                       ` : ''}
@@ -321,7 +461,7 @@ fetch("assets/data/education.json")
       });
 
 // ==========================
-// 10. Certificate Modal (Preview Sertifikat)
+// 11. Certificate Modal (Preview Sertifikat)
 // ==========================
 function openCertificateModal(title, year, expired, description, file, isPdf = false) {
   document.getElementById("modalTitle").innerText = title;
@@ -338,11 +478,11 @@ function openCertificateModal(title, year, expired, description, file, isPdf = f
 
   if (isPdf) {
     modalContent.innerHTML = `
-      <iframe src="${fileUrl}" class="w-full h-96 rounded-md border border-gray-200 shadow-md"></iframe>
+      <iframe src="${fileUrl}" class="w-full h-96 rounded-md border border-gray-200"></iframe>
     `;
   } else {
     modalContent.innerHTML = `
-      <img src="${fileUrl}" alt="${title}" class="mx-auto rounded-md max-h-96 object-contain shadow-md" />
+      <img src="${fileUrl}" alt="${title}" class="mx-auto rounded-md max-h-96 object-contain" />
     `;
   }
 
@@ -357,7 +497,7 @@ function closeCertificateModal() {
 }
 
 // ==========================
-// 10b. Load Certificates (aman dari error)
+// 11b. Load Certificates (aman dari error)
 // ==========================
 async function loadCertificates() {
   try {
@@ -370,7 +510,7 @@ async function loadCertificates() {
     data.forEach(cert => {
       const card = document.createElement("div");
       card.className =
-        "bg-white p-5 rounded-xl shadow hover:shadow-lg cursor-pointer transition";
+        "bg-white p-5 rounded-xl cursor-pointer transition card-transparent";
       card.onclick = () =>
         openCertificateModal(
           cert.title,
@@ -383,9 +523,10 @@ async function loadCertificates() {
 
       card.innerHTML = `
         <div class="flex items-center justify-between">
-          <h4 class="font-semibold text-gray-800 text-lg">${cert.title}</h4>
+          <h5 class="font-semibold text-gray-800">${cert.title}</h5>
           <span class="text-sm text-gray-500">Berlaku s/d ${cert.expired}</span>
         </div>
+        <p class="text-blue-500 text-sm mt-1">${cert.institution}</p>
       `;
       container.appendChild(card);
     });
@@ -397,7 +538,7 @@ async function loadCertificates() {
 document.addEventListener("DOMContentLoaded", loadCertificates);
 
 // ==========================
-// 11. Optional Thumbnail PDF.js (aman & tidak ganggu)
+// 12. Optional Thumbnail PDF.js (aman & tidak ganggu)
 // ==========================
 document.addEventListener("DOMContentLoaded", () => {
   const canvas = document.getElementById("thumb1");
@@ -413,4 +554,3 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch(err => console.warn("PDF.js tidak aktif:", err.message));
 });
-

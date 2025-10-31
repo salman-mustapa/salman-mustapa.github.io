@@ -1,22 +1,83 @@
 [
   {
     "id": "project1",
-    "title": "Sistem Manajemen Inventori",
-    "description": "Aplikasi berbasis Laravel untuk mengelola stok barang dengan fitur CRUD, autentikasi pengguna, dan laporan MySQL.",
-    "details": "Aplikasi ini memungkinkan pengguna untuk mengelola stok barang dengan fitur pembaruan real-time, autentikasi Laravel, dan laporan MySQL. Antarmuka dibangun menggunakan Bootstrap agar responsif.",
-    "tech": "Laravel, MySQL, Bootstrap, REST API",
-    "image": "https://image.thum.io/get/width/600/https://siat.ung.ac.id",
-    "preview_url": "https://siat.ung.ac.id",
-    "source_url": "https://github.com/salman-mustapa/inventori-system"
+    "title": "Sistem Informasi Pengelolaan Sarana Prasana Laboratorium",
+    "description": "Aplikasi berbasis Web dan Android untuk pengelolaan sarana dan prasarana laboratorium secara terintegrasi.",
+    "details": [
+      "Mengelola data laboratorium, ruang, dan fasilitas secara terpusat.",
+      "Mengatur jadwal mata kuliah dan penggunaan laboratorium oleh dosen maupun mahasiswa.",
+      "Menyediakan fitur peminjaman dan penyewaan aset serta ruang laboratorium.",
+      "Mendukung proses pengadaan, pelacakan, dan monitoring aset secara real-time.",
+      "Menghasilkan laporan otomatis untuk administrasi dan audit inventaris.",
+      "Mengatur hak akses pengguna (admin, staf, dosen, mahasiswa) sesuai peran masing-masing."
+    ],
+    "tech": "Laravel, MySQL, Bootstrap, REST API, Kotlin",
+    "image": "https://image.thum.io/get/width/600/https://siasat.manyta.net",
+    "preview_url": "https://siasat.manyta.net",
+    "source_url": "https://salman-mustapa.github.io#projects"
   },
   {
     "id": "project2",
-    "title": "Sistem Monitoring Jaringan",
-    "description": "Dashboard berbasis Flask dan Chart.js untuk memantau status jaringan dan perangkat Mikrotik.",
-    "details": "Menampilkan data jaringan real-time menggunakan API dan socket. Dapat menampilkan status perangkat, ping otomatis, dan alarm peringatan.",
-    "tech": "Flask, Chart.js, Python, Mikrotik API",
-    "image": "https://image.thum.io/get/width/600/https://network-dashboard.example.com",
-    "preview_url": "https://network-dashboard.example.com",
-    "source_url": "https://github.com/salman-mustapa/network-monitor"
+    "title": "Web Penjualan Mobil",
+    "description": "Platform jual beli mobil bekas berbasis web untuk mempermudah transaksi antara penjual dan pembeli.",
+    "details": [
+      "Menyediakan fitur manajemen data mobil seperti spesifikasi, harga, dan kondisi kendaraan.",
+      "Menampilkan daftar mobil dengan sistem pencarian dan filter berdasarkan merek, tahun, dan harga.",
+      "Mendukung proses upload foto mobil dan pengelolaan data penjual.",
+      "Menyediakan halaman detail produk dan sistem pemesanan melalui formulir kontak.",
+      "Dilengkapi dashboard admin untuk mengelola listing, pengunjung, dan laporan penjualan."
+    ],
+    "tech": "Laravel, MySQL, Bootstrap, Blade Template",
+    "image": "https://image.thum.io/get/width/600/https://mobilku.manyta.net",
+    "preview_url": "https://mobilku.manyta.net",
+    "source_url": "https://salman-mustapa.github.io#projects"
+  },
+  {
+    "id": "project3",
+    "title": "Cyber Conseling (CybCo)",
+    "description": "Platform konseling daring yang menghubungkan konselor dan pengguna secara aman dan terstruktur.",
+    "details": [
+      "Menyediakan sistem registrasi dan autentikasi untuk konselor dan pengguna.",
+      "Mendukung sesi konseling online melalui chat aman dan terarsip.",
+      "Menampilkan jadwal konseling, riwayat sesi, serta status pengguna secara real-time.",
+      "Menyediakan dashboard admin untuk monitoring aktivitas dan manajemen data konseling.",
+      "Menyediakan fitur kuisioner yang wajib di isi siswa pada saat pertama kali mengakses dashboard",
+      "Menyediakan fitur reporting dan laporan ke orang tua"
+    ],
+    "tech": "Laravel, MySQL, Bootstrap, Blade Template, Fonnte (Wa Gateway)",
+    "image": "https://image.thum.io/get/width/600/https://cybco.manyta.net",
+    "preview_url": "https://cybco.manyta.net",
+    "source_url": "https://github.com/abangucup/cybco"
+  },
+  {
+    "id": "project4",
+    "title": "Warisan Budaya Tak Benda(Siwaya)",
+    "description": "Sistem informasi untuk pendataan, verifikasi, dan penetapan Warisan Budaya Tak Benda secara digital.",
+    "details": [
+      "Menyediakan fitur pendaftaran dan pengajuan data Warisan Budaya Tak Benda secara online menggunakan aplikasi android.",
+      "Mendukung proses verifikasi, validasi, dan penetapan data oleh tim ahli atau instansi terkait.",
+      "Menampilkan daftar Warisan Budaya Tak Benda yang telah terverifikasi dan ditetapkan secara publik.",
+      "Menyediakan dashboard admin untuk pengelolaan data, pengguna, serta laporan penetapan."
+    ],
+    "tech": "Laravel, MySQL, Bootstrap, Blade Template, Kotlin (Web to Android)",
+    "image": "https://image.thum.io/get/width/600/https://warisan-budaya.manyta.net",
+    "preview_url": "https://warisan-budaya.manyta.net",
+    "source_url": "https://github.com/abangucup/siwaya"
+  },
+  {
+    "id": "project5",
+    "title": "Sistem Pengelolaan Obat (Sobat)",
+    "description": "Aplikasi manajemen obat untuk membantu proses pendataan, distribusi, dan pelaporan stok obat di fasilitas kesehatan.",
+    "details": [
+      "Mengelola data obat meliputi nama, jenis, stok, dan tanggal kedaluwarsa.",
+      "Mendukung proses pemasukan dan pengeluaran obat secara otomatis melalui sistem transaksi.",
+      "Menyediakan fitur pencatatan distribusi obat ke unit atau fasilitas kesehatan terkait.",
+      "Menampilkan laporan stok, penggunaan, dan pengadaan obat secara real-time.",
+      "Menyediakan dashboard gudang farmasi untuk monitoring dan pengelolaan data farmasi secara efisien."
+    ],
+    "tech": "Laravel, MySQL, Bootstrap, Blade Template",
+    "image": "https://image.thum.io/get/width/600/https://sobat.manyta.net",
+    "preview_url": "https://sobat.manyta.net",
+    "source_url": "https://github.com/abangucup/sobat"
   }
 ]

@@ -1,34 +1,38 @@
 [
   {
-    "degree": "Sarjana Teknik Informatika",
+    "degree": "Sarjana S1",
     "institution": "Universitas Negeri Gorontalo",
-    "year": "2017 - 2021",
+    "year": "2018 - 2023",
     "details": [
       { "label": "IPK", "value": "3.43" },
       {
         "label": "Organisasi",
         "subitems": [
-          { "name": "Komunitas Studi Linux (KSL)", "role": "Ketua Divisi Networking (2019–2022)" },
-          { "name": "Asisten Laboratorium", "role": "Laboratorium Jaringan (2020–2021)" }
+          { "label": "Komunitas Studi Linux (KSL)", "value": "Ketua Divisi Networking (2020–2021)" },
+          { "label": "Asisten Laboratorium", "value": "Laboratorium Jaringan (2019–2021)" }
         ]
       }
     ]
   },
   {
-    "degree": "Sertifikasi Junior Network Administrator (BNSP)",
-    "institution": "LSP TIK Indonesia",
-    "year": "2022",
+    "degree": "Sekolah Menengah Kejuruan",
+    "institution": "SMK Negeri 4 Kota Gorontalo",
+    "year": "2018",
     "details": [
-      { "label": "Vendor", "value": "Cisco & MikroTik" },
-      { "label": "Deskripsi", "value": "Konfigurasi jaringan, routing, dan troubleshooting jaringan skala menengah." }
-    ]
-  },
-  {
-    "degree": "Pelatihan Cybersecurity Fundamentals",
-    "institution": "SentinelOne Academy",
-    "year": "2024",
-    "details": [
-      { "label": "Topik", "value": "Endpoint Protection, Threat Analysis, Incident Response" }
+      { "label": "LKS", 
+        "value": "IT Network System Administration", 
+        "subitems": [
+          { "label": "Tahun", "value": "2018"},
+          { "label": "Kompetensi", "value": "Instalasi dan Konfigurasi Server Modul A (Samba Server, Web Server, Mysql Server, Mail Server, SSH Server dan Domain server, Cacti dan lainnya)" }
+        ]
+      },
+      { "label": "UKK", 
+        "value": "SysAdmin" ,
+        "subitems": [
+            { "label": "Tahun", "value": "2018"},
+            { "label": "Deskripsi", "value": "Ujian Komptensi Melakukan Instalasi dan Konfigurasi Server (Samba Server, Web Server, Mysql Server, Mail Server, SSH Server dan Domain server)" }
+          ]
+      }
     ]
   }
 ]

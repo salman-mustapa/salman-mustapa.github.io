@@ -49,12 +49,28 @@
 
       gtag('config', 'G-QNV3SL7HLW');
     </script>
-
-
   </head>
   <body>
+    <!-- Theme Toggle (Mobile - FAB) -->
+    <div class="theme-toggle-mobile fixed bottom-24 right-6 z-50 md:hidden">
+      <button id="theme-toggle-fab" class="bg-blue-600 text-white rounded-full w-14 h-14 flex items-center justify-center">
+        <i class="fas fa-palette text-xl"></i>
+      </button>
+      <div id="theme-options" class="hidden absolute bottom-16 right-0 bg-white/10 backdrop-blur-md rounded-xl p-2 border border-white/20">
+        <button id="theme-light-mobile" class="theme-btn-mobile flex items-center p-2 rounded-lg transition-all w-full text-left">
+          <i class="fas fa-sun text-yellow-400 mr-2"></i> Light
+        </button>
+        <button id="theme-dark-mobile" class="theme-btn-mobile flex items-center p-2 rounded-lg transition-all w-full text-left">
+          <i class="fas fa-moon text-blue-300 mr-2"></i> Dark
+        </button>
+        <button id="theme-system-mobile" class="theme-btn-mobile flex items-center p-2 rounded-lg transition-all w-full text-left">
+          <i class="fas fa-desktop text-gray-300 mr-2"></i> System
+        </button>
+      </div>
+    </div>
+
     <!-- Navbar (Desktop) -->
-    <nav class="navbar-top fixed top-0 left-0 right-0 z-50">
+    <nav class="navbar-top fixed top-0 left-0 right-0 z-40">
       <div
         class="container mx-auto px-4 py-3 flex items-center justify-center xl:justify-between">
         <a
@@ -79,13 +95,31 @@
           <a
             href="#blog"
             class="nav-link text-gray-800 hover:text-blue-500 flex items-center"><i class="fas fa-globe mr-2"></i>Blog</a>
+          
+          <!-- Theme Toggle (Desktop) -->
+          <div class="relative ml-4">
+            <button id="theme-toggle-desktop" class="text-gray-800 hover:text-blue-500 p-2 rounded-full transition-all">
+              <i class="fas fa-palette"></i>
+            </button>
+            <div id="theme-options-desktop" class="hidden absolute top-12 right-0 bg-white/10 backdrop-blur-md rounded-xl p-2 border border-white/20 min-w-[140px]">
+              <button id="theme-light" class="theme-btn flex items-center p-2 rounded-lg transition-all w-full text-left">
+                <i class="fas fa-sun text-yellow-400 mr-2"></i> Light
+              </button>
+              <button id="theme-dark" class="theme-btn flex items-center p-2 rounded-lg transition-all w-full text-left">
+                <i class="fas fa-moon text-blue-300 mr-2"></i> Dark
+              </button>
+              <button id="theme-system" class="theme-btn flex items-center p-2 rounded-lg transition-all w-full text-left">
+                <i class="fas fa-desktop text-gray-300 mr-2"></i> System
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </nav>
 
     <!-- Navbar Bottom (Mobile Only) -->
     <nav
-      class="navbar-bottom fixed bottom-0 left-0 right-0 bg-white shadow-md border-t z-50 block md:hidden">
+      class="navbar-bottom fixed bottom-0 left-0 right-0 bg-white shadow-md border-t z-40 block md:hidden">
       <div class="flex justify-around items-center h-14">
         <a
           href="#about"
@@ -144,7 +178,6 @@
 
     <!-- About Section -->
     <section id="about" class="py-16">
-      <!-- <div class="container mx-auto px-4"> -->
       <div class="container mx-auto px-6">
         <h2
           class="section-title text-3xl font-bold text-blue-600 mb-8"
@@ -152,7 +185,7 @@
           Tentang Saya
         </h2>
         <div
-          class="mx-auto bg-white p-6 rounded-xl shadow-lg"
+          class="mx-auto bg-white p-6 rounded-xl card-transparent"
           data-aos="fade-up"
           data-aos-delay="100">
           <div class="text-gray-600 text-justify">
@@ -228,7 +261,7 @@
         tabindex="-1"
         aria-hidden="true"
         class="hidden fixed inset-0 z-50 flex items-center p-4 justify-center bg-black bg-opacity-50">
-        <div class="bg-white rounded-lg shadow-lg max-w-md w-full p-6 relative">
+        <div class="bg-white rounded-lg max-w-md w-full p-6 relative modal-transparent">
           <!-- Tombol close -->
           <button
             type="button"
@@ -239,18 +272,18 @@
 
           <h3 class="text-xl font-semibold text-gray-900 mb-4">Download</h3>
           <p class="text-gray-600 mb-6">
-            Silakan pilih dokumen yang ingin dilihat:
+            Dokumen Pendukung:
           </p>
 
           <div class="flex flex-col space-y-3">
             <a
-              href="assets/portofolio.pdf"
+              href="assets/document/portofolio.pdf"
               download
               class="w-full text-center bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition">
               Download Portofolio
             </a>
             <a
-              href="assets/cv.pdf"
+              href="assets/document/cv.pdf"
               download
               class="w-full text-center bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition">
               Download CV
@@ -273,7 +306,7 @@
         <!-- Grid Keahlian -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div
-            class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform"
+            class="bg-white p-6 rounded-xl card-transparent"
             data-aos="fade-up"
             data-aos-delay="100">
             <i class="fas fa-laptop-code fa-2x text-blue-600 mb-4"></i>
@@ -285,7 +318,7 @@
           </div>
 
           <div
-            class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform"
+            class="bg-white p-6 rounded-xl card-transparent"
             data-aos="fade-up"
             data-aos-delay="150">
             <i class="fab fa-android fa-2x text-blue-600 mb-4"></i>
@@ -297,7 +330,7 @@
           </div>
 
           <div
-            class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform"
+            class="bg-white p-6 rounded-xl card-transparent"
             data-aos="fade-up"
             data-aos-delay="200">
             <i class="fas fa-network-wired fa-2x text-blue-600 mb-4"></i>
@@ -309,7 +342,7 @@
           </div>
 
           <div
-            class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform"
+            class="bg-white p-6 rounded-xl card-transparent"
             data-aos="fade-up"
             data-aos-delay="350">
             <i class="fas fa-server fa-2x text-blue-600 mb-4"></i>
@@ -321,7 +354,7 @@
           </div>
 
           <div
-            class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform"
+            class="bg-white p-6 rounded-xl card-transparent"
             data-aos="fade-up"
             data-aos-delay="350">
             <i class="fab fa-github fa-2x text-blue-600 mb-4"></i>
@@ -336,7 +369,7 @@
       </div>
     </section>
     <!-- Certificate Section -->
-    <section id="skills" class="pb-16 bg-gray-100">
+    <section id="skills" class="py-16 bg-gray-100">
       <div class="container mx-auto px-6">
           <h3
           class="section-title text-3xl font-bold text-blue-600 mb-8"
@@ -357,7 +390,7 @@
         id="certificateModal"
         class="fixed inset-0 hidden bg-black bg-opacity-60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
         <div
-          class="bg-white rounded-2xl shadow-2xl max-w-3xl w-full overflow-hidden animate-fadeIn relative">
+          class="bg-white rounded-2xl max-w-3xl w-full overflow-hidden animate-fadeIn relative modal-transparent">
           <!-- Tombol Tutup -->
           <button
             onclick="closeCertificateModal()"
@@ -379,13 +412,6 @@
             <p id="modalDescription" class="text-gray-700 mb-4"></p>
 
             <!-- Tombol Download -->
-            <!-- <a
-              id="downloadLink"
-              href="#"
-              download
-              class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium px-5 py-2 rounded-full transition">
-              <i class="fas fa-download"></i> Download Sertifikat
-            </a> -->
             <a
               id="downloadLink"
               class="mt-4 inline-block bg-blue-600 text-white font-medium px-5 py-2 rounded-lg hover:bg-blue-700 transition"
@@ -399,7 +425,7 @@
     </section>
 
     <!-- Experience Section (List View with Animation) -->
-    <section id="experience" class="py-20 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden">
+    <section id="experience" class="py-20 bg-gray-100 relative overflow-hidden">
       <div class="container mx-auto px-6">
         <h2 class="section-title text-3xl font-bold text-blue-600 mb-8" data-aos="fade-up">
           Pengalaman
@@ -412,7 +438,7 @@
         <div id="timeline" class="relative space-y-14 max-w-5xl mx-auto"></div>
 
         <div class="text-center mt-12">
-          <button id="load-more" class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full shadow-lg transition-all duration-300 hover:shadow-xl">
+          <button id="load-more" class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full transition-all duration-300">
             Tampilkan Lebih Banyak
           </button>
         </div>
@@ -420,7 +446,7 @@
     </section>
 
     <!-- Education Section -->
-    <section id="education" class="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section id="education" class="py-20 bg-gray-100">
       <div class="container mx-auto px-6">
         <h2 class="section-title text-3xl font-bold text-blue-600 mb-8" data-aos="fade-up">
           Pendidikan
@@ -428,7 +454,7 @@
 
         <div class="relative">
           <!-- Garis timeline -->
-          <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-blue-200 transform -translate-x-1/2"></div>
+          <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-blue-200 transform-translate-x-1/2"></div>
 
           <div id="education-list" class="space-y-14"></div>
         </div>
@@ -436,7 +462,7 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section id="projects" class="py-20 bg-gray-100">
       <div class="container mx-auto px-6">
         <h2 class="section-title text-4xl font-extrabold text-center text-blue-700 mb-14" data-aos="fade-up">
           Proyek
@@ -447,7 +473,7 @@
 
       <!-- Modal -->
       <div id="project-modal" class="hidden fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-3xl relative overflow-hidden">
+        <div class="bg-white rounded-2xl w-full max-w-3xl relative overflow-hidden modal-transparent">
           <button id="close-modal" class="absolute top-3 right-3 bg-gray-200 hover:bg-gray-300 rounded-full p-2">
             <i class="fas fa-times text-gray-600"></i>
           </button>
@@ -485,53 +511,53 @@
     <!-- Contact Section -->
     <section
       id="contact"
-      class="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
-      <!-- <div class="container mx-auto px-4 text-center"> -->
+      class="py-16 bg-gray-100">
       <div class="container mx-auto px-6">
         <h2 class="section-title text-3xl font-bold mb-8" data-aos="fade-up">
           Hubungi Saya
         </h2>
-        <!-- <form id="contactForm" data-aos="fade-up" data-aos-delay="100"> -->
-        <form
-          id="contactForm"
-          data-aos="fade-up"
-          data-aos-delay="100"
-          onsubmit="return false;">
-          <div class="mb-6">
-            <label for="name" class="block font-semibold mb-2">Nama</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              required
-              class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-500"
-            />
-          </div>
-          <div class="mb-6">
-            <label for="email" class="block font-semibold mb-2">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              required
-              class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-500"
-            />
-          </div>
-          <div class="mb-6">
-            <label for="message" class="block font-semibold mb-2">Pesan</label>
-            <textarea
-              id="message"
-              name="message"
-              rows="5"
-              required
-              class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-500"></textarea>
-          </div>
-          <button
-            type="submit"
-            class="w-full bg-blue-900 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700 transition">
-            Kirim Pesan
-          </button>
-        </form>
+        <div class="mx-auto bg-white p-8 rounded-xl card-transparent">
+          <form
+            id="contactForm"
+            data-aos="fade-up"
+            data-aos-delay="100"
+            onsubmit="return false;">
+            <div class="mb-6">
+              <label for="name" class="block font-semibold mb-2">Nama</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-500"
+              />
+            </div>
+            <div class="mb-6">
+              <label for="email" class="block font-semibold mb-2">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-500"
+              />
+            </div>
+            <div class="mb-6">
+              <label for="message" class="block font-semibold mb-2">Pesan</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+                class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-500"></textarea>
+            </div>
+            <button
+              type="submit"
+              class="w-full bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700 transition">
+              Kirim Pesan
+            </button>
+          </form>
+        </div>
       </div>
     </section>
 

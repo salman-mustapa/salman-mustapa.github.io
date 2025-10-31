@@ -1,17 +1,47 @@
 [
   {
-    "position": "IT Networking",
-    "company": "Dinas Kominfo Kabupaten Bonebolango",
-    "period": "Januari 2022 - Desember 2024",
+    "position": "Security Engineer",
+    "company": "PT Dikstra Cipta Solusi",
+    "period": "Juli 2025 - Sekarang",
     "tasks": [
-      "Instalasi dan konfigurasi perangkat jaringan (Mikrotik, Switch, Router)",
-      "Instalasi & konfigurasi CCTV untuk OPD",
-      "Monitoring trafik jaringan antar-OPD",
-      "Maintenance perangkat jaringan secara berkala"
+      "Mengelola dan memantau SentinelOne untuk deteksi dan respons ancaman di lingkungan perbankan.",
+      "Melakukan investigasi insiden dan analisis log keamanan untuk identifikasi potensi serangan.",
+      "Menjalankan simulasi phishing dan program awareness keamanan bagi karyawan.",
+      "Menyusun laporan keamanan bulanan dan rekomendasi mitigasi risiko.",
+      "Berkolaborasi dengan tim SOC untuk isolasi dan pemulihan endpoint yang terinfeksi."
     ],
-    "contact_name": "Kepala Bidang Kominfo – Pak Hendra Lahay",
-    "contact_link": "https://wa.me/6285240260204?text=Apakah%20benar%20Salman%20adalah%20mantan%20IT%20Networking%20di%20Dinas%20Kominfo%20Kabupaten%20Bonebolango%3F",
-    "contact_phone": "+62 852 4026 0204 (WhatsApp)"
+    "contact_name": "CEO – Yulisa Rahmadianti(Ibu Icha)",
+    "contact_link": "https://wa.me/628158875663?text=Apakah%20benar%20Salman%20adalah%20TIM%20Security%20Engineer%20di%20PT%20Dikstra%20Cipta%20Solusi%3F",
+    "contact_phone": "+62 815-8875-663 (WhatsApp)"
+  },
+  {
+    "position": "IT Staff",
+    "company": "PT Lambang Azas Mulia",
+    "period": "Februari 2025 - Juli 2025",
+    "tasks": [
+      "Melakukan pemeliharaan dan troubleshooting jaringan serta perangkat komputer kantor.",
+      "Mendukung operasional sistem informasi perusahaan untuk memastikan kelancaran bisnis.",
+      "Melakukan instalasi, update, dan monitoring software serta hardware.",
+      "Memberikan dukungan teknis kepada pengguna internal terkait sistem IT perusahaan.",
+      "Membantu pengelolaan data dan keamanan sistem internal perusahaan."
+    ],
+    "contact_name": "HR – Nurain Rahmalina(Ibu Ain)",
+    "contact_link": "https://wa.me/6282291583567?text=Apakah%20benar%20Salman%20Mustapa%20adalah%20Mantan%20IT%20Staff%20di%20PT%20Lambang%20Azas%20Mulia%3F",
+    "contact_phone": "+62 822-9158-3567 (WhatsApp)"
+  },
+  {
+    "position": "Backend Developer",
+    "company": "Startup Alps Studio",
+    "period": "Februari 2024 - April 2024",
+    "tasks": [
+      "Mengembangkan dan memelihara sistem backend berbasis Laravel.",
+      "Mendesain dan mengimplementasikan API untuk integrasi aplikasi.",
+      "Melakukan debugging, testing, dan deployment aplikasi backend.",
+      "Berkoordinasi dengan tim frontend untuk memastikan integrasi sistem berjalan lancar."
+    ],
+    "contact_name": "Pemilik Alps Studio – Pak Rizal",
+    "contact_link": "https://salman-mustapa.github.io",
+    "contact_phone": "- (WhatsApp)"
   },
   {
     "position": "IT Networking",
@@ -28,31 +58,18 @@
     "contact_phone": "+62 852 4026 0204 (WhatsApp)"
   },
   {
-    "position": "IT Networking",
-    "company": "Dinas Kominfo Kabupaten Bonebolango",
+    "position": "Operator Komputer",
+    "company": "Dinas Kesehatan Kota Gorontalo",
     "period": "Januari 2022 - Desember 2024",
     "tasks": [
-      "Instalasi dan konfigurasi perangkat jaringan (Mikrotik, Switch, Router)",
-      "Instalasi & konfigurasi CCTV untuk OPD",
-      "Monitoring trafik jaringan antar-OPD",
-      "Maintenance perangkat jaringan secara berkala"
+      "Mengelola dan menginput data kesehatan terkait pengendalian penyakit dan lingkungan.",
+      "Mendukung administrasi digital dan pelaporan program kesehatan masyarakat.",
+      "Membantu pengolahan data surveilans penyakit dan pelaporan rutin ke pusat.",
+      "Melakukan entri, verifikasi, dan rekapitulasi data kegiatan P2PL.",
+      "Berkoordinasi dengan tim lapangan dalam validasi data kesehatan lingkungan."
     ],
-    "contact_name": "Kepala Bidang Kominfo – Pak Hendra Lahay",
-    "contact_link": "https://wa.me/6285240260204?text=Apakah%20benar%20Salman%20adalah%20mantan%20IT%20Networking%20di%20Dinas%20Kominfo%20Kabupaten%20Bonebolango%3F",
-    "contact_phone": "+62 852 4026 0204 (WhatsApp)"
-  },
-  {
-    "position": "IT Networking",
-    "company": "Dinas Kominfo Kabupaten Bonebolango",
-    "period": "Januari 2022 - Desember 2024",
-    "tasks": [
-      "Instalasi dan konfigurasi perangkat jaringan (Mikrotik, Switch, Router)",
-      "Instalasi & konfigurasi CCTV untuk OPD",
-      "Monitoring trafik jaringan antar-OPD",
-      "Maintenance perangkat jaringan secara berkala"
-    ],
-    "contact_name": "Kepala Bidang Kominfo – Pak Hendra Lahay",
-    "contact_link": "https://wa.me/6285240260204?text=Apakah%20benar%20Salman%20adalah%20mantan%20IT%20Networking%20di%20Dinas%20Kominfo%20Kabupaten%20Bonebolango%3F",
-    "contact_phone": "+62 852 4026 0204 (WhatsApp)"
+    "contact_name": "Kepala Bidang P2PL – Pak Harson Ahuduluh",
+    "contact_link": "https://wa.me/6282298673449?text=Apakah%20benar%20Salman%20Mustapa%20adalah%20mantan%20Operator%20Komputer%20di%20Dinas%20Kesehatan%20Kota%20Gorontalo%3F",
+    "contact_phone": "+62 822-9867-3449 (WhatsApp)"
   }
 ]
