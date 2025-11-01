@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Halaman utama -->
+  <sitemap>
+    <loc>https://salman-mustapa.github.io/sitemap.xml</loc>
+    <lastmod>2025-10-27</lastmod>
+  </sitemap>
+
+  <!-- Project MkDocs -->
+  <sitemap>
+    <loc>https://salman-mustapa.github.io/s1-docs/sitemap.xml</loc>
+    <lastmod>2025-08-07</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://salman-mustapa.github.io/laravel-docs/sitemap.xml</loc>
+  </sitemap>
+  <sitemap>
+    <loc>https://salman-mustapa.github.io/sentinelone-docs/sitemap.xml</loc>
+  </sitemap>
+  <sitemap>
+    <loc>https://salman-mustapa.github.io/github-setup/sitemap.xml</loc>
+  </sitemap>
+  <sitemap>
+    <loc>https://salman-mustapa.github.io/glossary-tech/sitemap.xml</loc>
+  </sitemap>
+</sitemapindex>

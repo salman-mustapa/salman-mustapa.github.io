@@ -13,18 +13,23 @@
       content="Salman Mustapa, Backend Developer, Laravel, Networking, Linux, Bootstrap, MySQL, SysAdmin, Portfolio"
     />
     <!-- Open Graph (Social Preview) -->
+    <meta property="og:type" content="website">
     <meta property="og:title" content="Salman Mustapa - Portfolio & Tech Blog">
-    <meta property="og:description" content="Eksplor portofolio, proyek, sertifikat, dan tulisan teknologi oleh Salman Mustapa.">
-    <meta property="og:image" content="https://salman-mustapa.github.io/assets/img/preview.png">
-    <meta name="theme-color">
+    <meta property="og:description" content="Eksplor portofolio dan tulisan seputar networking, programming, cyber security, dan open source oleh Salman Mustapa.">
     <meta property="og:url" content="https://salman-mustapa.github.io/">
+    <meta property="og:image" content="https://salman-mustapa.github.io/assets/img/preview.png">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Salman Mustapa - Portfolio & Tech Blog">
+    <meta name="twitter:description" content="Eksplor portofolio dan tulisan seputar networking, programming, cyber security, dan open source oleh Salman Mustapa.">
+    <meta name="twitter:image" content="https://salman-mustapa.github.io/assets/img/preview.png">
+
+    <!-- Icon -->
     <link rel="icon" type="image/png" href="/assets/img/favicon.png">
 
     <title>Salman Mustapa | Portofolio</title>
     
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com" defer></script>
     
     <!-- Flowbite CSS -->
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
@@ -32,15 +37,22 @@
     <!-- Font Awesome for Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet" />
 
+    <!-- Performance hints: preconnect and dns-prefetch -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
     <!-- Google Fonts (Quicksand) -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+
 
     <!-- AOS for Animations -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/style.css" />
 
     <!-- Google tag (gtag.js) -->
@@ -50,7 +62,13 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-QNV3SL7HLW');
+      gtag('config', 'G-QNV3SL7HLW', {
+        'custom_map': {'dimension1': 'site_name'}
+      });
+
+      gtag('event', 'page_view', {
+        'site_name': 'Salman Mustapa Portfolio'
+      });
     </script>
   </head>
   <body>
@@ -160,7 +178,7 @@
           href="#blog"
           class="nav-link flex flex-col items-center text-gray-600 text-xs">
           <i class="fas fa-globe text-lg"></i>
-          <span class="text-[10px]">blog</span>
+          <span class="text-[10px]">Blog</span>
         </a>
       </div>
     </nav>
@@ -567,25 +585,30 @@
     </section>
 
     <!-- Flowbite JS -->
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js" defer></script>
     <!-- AOS JS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
-    <script src="assets/script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js" defer></script>
+    <script src="assets/script.js" defer></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Salman Mustapa",
+        "@type": "Website",
         "url": "https://salman-mustapa.github.io",
+        "name": "Salman Mustapa - Portfolio & Tech Blog",
+        "description": "Eksplor portofolio dan tulisan seputar networking, programming, cyber security, dan open source oleh Salman Mustapa.",
+        "author": {
+          "@type": "Person",
+          "name": "Salman Mustapa",
+        }
         "sameAs": [
           "https://github.com/salman-mustapa",
           "https://id.linkedin.com/in/salman-mustapa-0b4997284/"
         ],
-        "jobTitle": "Network Engineer & Software Engineer",
+        "jobTitle": "Networking, Software Development, SysAdmin, Security Engineer",
         "worksFor": {
           "@type": "Organization",
-          "name": "Freelancer / Open Source"
+          "name": "Freelancer / Open Source / Personal Project / Learning / Blogging"
         }
       }
     </script>
