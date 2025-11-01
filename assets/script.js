@@ -162,11 +162,18 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // ==========================
 // 4. Navbar Bottom → Active Link ketika diklik
 // ==========================
+let isManualScroll = false;
+
 document.querySelectorAll('.navbar-bottom .nav-link').forEach(link => {
     link.addEventListener('click', function() {
+
+        isManualScroll = true;
+
         document.querySelectorAll('.navbar-bottom .nav-link')
             .forEach(l => l.classList.remove('active'));
         this.classList.add('active');
+
+        setTimeout(() => { isManualScroll = false; }, 1000); // setelah animasi scroll selesai
     });
 });
 
@@ -181,7 +188,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const observerOptions = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.3 // Mengurangi threshold agar lebih sensitif
+        threshold: 0.2 // Mengurangi threshold agar lebih sensitif
     };
 
     const observer = new IntersectionObserver(
@@ -191,7 +198,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const navLink = document.querySelector(`.navbar-top .nav-link[href="#${id}"]`);
                 const navLinkBottom = document.querySelector(`.navbar-bottom .nav-link[href="#${id}"]`);
 
-                if (entry.isIntersecting) {
+                if (entry.isIntersecting && !isManualScroll) {
                     // Update top navbar
                     navLinks.forEach((link) => link.classList.remove("active"));
                     if (navLink) navLink.classList.add("active");

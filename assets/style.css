@@ -198,6 +198,11 @@ body {
     transform: translateY(0);
 }
 
+.navbar-bottom .nav-link:not(.active) span {
+    opacity: 0 !important;
+    transform: translateY(8px) !important;
+}
+
 .navbar-bottom .nav-link:hover {
     color: var(--accent);
     transform: scale(1.05);
@@ -510,4 +515,15 @@ input:focus, textarea:focus {
   border-radius: 4px;
 }
 
+/* modal scrol */
+#project-modal,
+#certificateModal {
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch; /* biar halus di iOS */
+}
 
+#project-modal .modal-transparent,
+#certificateModal .modal-transparent {
+  max-height: 90vh; /* biar tidak keluar layar */
+  overflow-y: auto;  /* biar bisa digulir */
+}
