@@ -60,7 +60,8 @@
 
 /* ==========================
    Base Style
-========================== */
+========================== */   
+
 body {
     font-family: 'Quicksand', sans-serif;
     background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
@@ -508,3 +509,5 @@ input:focus, textarea:focus {
   background-color: var(--accent);
   border-radius: 4px;
 }
+
+

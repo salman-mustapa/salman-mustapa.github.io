@@ -171,55 +171,42 @@ document.querySelectorAll('.navbar-bottom .nav-link').forEach(link => {
 });
 
 // ==========================
-// 5. Navbar Top → Highlight Active Link saat scroll (Intersection Observer)
+// 5. Navbar Top & Bottom → Highlight Active Link saat scroll (Intersection Observer)
 // ==========================
 document.addEventListener("DOMContentLoaded", function () {
     const sections = document.querySelectorAll("section[id]");
     const navLinks = document.querySelectorAll(".navbar-top .nav-link");
+    const navLinksBottom = document.querySelectorAll(".navbar-bottom .nav-link");
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.3 // Mengurangi threshold agar lebih sensitif
+    };
 
     const observer = new IntersectionObserver(
         (entries) => {
             entries.forEach((entry) => {
                 const id = entry.target.getAttribute("id");
                 const navLink = document.querySelector(`.navbar-top .nav-link[href="#${id}"]`);
+                const navLinkBottom = document.querySelector(`.navbar-bottom .nav-link[href="#${id}"]`);
 
                 if (entry.isIntersecting) {
+                    // Update top navbar
                     navLinks.forEach((link) => link.classList.remove("active"));
                     if (navLink) navLink.classList.add("active");
+                    
+                    // Update bottom navbar
+                    navLinksBottom.forEach((link) => link.classList.remove("active"));
+                    if (navLinkBottom) navLinkBottom.classList.add("active");
                 }
             });
         },
-        { threshold: 0.5 } // aktif saat 50% section terlihat
+        observerOptions
     );
 
     sections.forEach((section) => {
         observer.observe(section);
-    });
-});
-// ==========================
-// 5b. Navbar Bottom → Highlight Active Link saat scroll (Intersection Observer)
-// ==========================
-document.addEventListener("DOMContentLoaded", function () {
-    const sections = document.querySelectorAll("section[id]");
-    const navLinksBottom = document.querySelectorAll(".navbar-bottom .nav-link");
-
-    const observerBottom = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                const id = entry.target.getAttribute("id");
-                const navLink = document.querySelector(`.navbar-bottom .nav-link[href="#${id}"]`);
-
-                if (entry.isIntersecting) {
-                    navLinksBottom.forEach((link) => link.classList.remove("active"));
-                    if (navLink) navLink.classList.add("active");
-                }
-            });
-        },
-        { threshold: 0.5 } // aktif saat 50% section terlihat
-    );
-
-    sections.forEach((section) => {
-        observerBottom.observe(section);
     });
 });
 
@@ -280,7 +267,7 @@ function renderBlogs() {
         <p class="text-gray-500 text-sm mb-2">${blog.date} • ${blog.author}</p>
         <p class="text-gray-600 text-sm">${blog.description}</p>
         <a href="${blog.url}" target="_blank" type="button"
-              class="mt-4 inline-block bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition">Baca Selengkapnya</a>
+            class="mt-4 inline-block bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition">Baca Selengkapnya</a>
       </div>
     `;
     card.addEventListener("click", () => openBlogModal(blog));
@@ -300,58 +287,58 @@ document.getElementById("loadMoreBtn").addEventListener("click", () => {
 });
 
 
-// ==========================
-// 8. Experience
-// ==========================
-const LIMIT = 3;
-let current = 0;
-let experiences = [];
+  // ==========================
+  // 8. Experience
+  // ==========================
+  const LIMIT = 3;
+  let current = 0;
+  let experiences = [];
 
-function renderExperiences() {
-    const container = document.getElementById('timeline');
-    container.innerHTML = '';
+  function renderExperiences() {
+      const container = document.getElementById('timeline');
+      container.innerHTML = '';
 
-    const visible = experiences.slice(0, current);
-    visible.forEach((exp, index) => {
-    const side = index % 2 === 0 ? 'timeline-left' : 'timeline-right';
-    const aos = index % 2 === 0 ? 'fade-right' : 'fade-left';
-    const tasks = exp.tasks.map(t => `<li>${t}</li>`).join('');
+      const visible = experiences.slice(0, current);
+      visible.forEach((exp, index) => {
+      const side = index % 2 === 0 ? 'timeline-left' : 'timeline-right';
+      const aos = index % 2 === 0 ? 'fade-right' : 'fade-left';
+      const tasks = exp.tasks.map(t => `<li>${t}</li>`).join('');
 
-    container.innerHTML += `
-        <div class="timeline-item relative flex justify-${index % 2 === 0 ? 'start' : 'end'} items-start" data-aos="${aos}" data-aos-delay="${index * 100}">
-        <div class="timeline-dot"></div>
-        <div class="timeline-card card-transparent ${side}">
-            <h3 class="text-xl font-bold text-blue-600">${exp.position}</h3>
-            <p class="text-gray-500 text-sm mb-2">${exp.company} • ${exp.period}</p>
-            <ul class="list-disc list-inside text-gray-600 mb-3">${tasks}</ul>
-            <div class="bg-gray-100 border rounded-lg p-3 text-sm text-gray-600">
-            <span class="font-semibold">Contact:</span> ${exp.contact_name}
-            <a href="${exp.contact_link}" class="text-blue-600 font-medium hover:underline" target="_blank">
-                ${exp.contact_phone}
-            </a>
-            </div>
-        </div>
-        </div>
-    `;
-    });
+      container.innerHTML += `
+          <div class="timeline-item relative flex justify-${index % 2 === 0 ? 'start' : 'end'} items-start" data-aos="${aos}" data-aos-delay="${index * 100}">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card card-transparent ${side}">
+              <h3 class="text-xl font-bold text-blue-600">${exp.position}</h3>
+              <p class="text-gray-500 text-sm mb-2">${exp.company} • ${exp.period}</p>
+              <ul class="list-disc list-inside text-gray-600 mb-3">${tasks}</ul>
+              <div class="bg-gray-100 border rounded-lg p-3 text-sm text-gray-600">
+              <span class="font-semibold">Contact:</span> ${exp.contact_name}
+              <a href="${exp.contact_link}" class="text-blue-600 font-medium hover:underline" target="_blank">
+                  ${exp.contact_phone}
+              </a>
+              </div>
+          </div>
+          </div>
+      `;
+      });
 
-    document.getElementById('load-more').style.display =
-    current >= experiences.length ? 'none' : 'inline-block';
-}
+      document.getElementById('load-more').style.display =
+      current >= experiences.length ? 'none' : 'inline-block';
+  }
 
-fetch('assets/data/experiences.json')
-    .then(res => res.json())
-    .then(data => {
-    experiences = data;
-    current = LIMIT;
-    renderExperiences();
-    })
-    .catch(err => console.error('Gagal memuat pengalaman:', err));
+  fetch('assets/data/experiences.json')
+      .then(res => res.json())
+      .then(data => {
+      experiences = data;
+      current = LIMIT;
+      renderExperiences();
+      })
+      .catch(err => console.error('Gagal memuat pengalaman:', err));
 
-document.getElementById('load-more').addEventListener('click', () => {
-    current += LIMIT;
-    renderExperiences();
-});
+  document.getElementById('load-more').addEventListener('click', () => {
+      current += LIMIT;
+      renderExperiences();
+  });
 
 
 // ==========================
@@ -369,7 +356,7 @@ fetch('assets/data/projects.json')
     .then(projects => {
     projectContainer.innerHTML = projects.map((p, i) => `
         <div class="project-card card-transparent rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="${i * 100}">
-        <img src="${p.image}" alt="${p.title}" class="w-full h-48 object-cover bg-gray-100" onerror="this.onerror=null;this.src='assets/img/gambar-default.png';" />
+        <img src="${p.image}" alt="${p.title}" class="w-full h-48 object-fit-contain bg-gray-100" onerror="this.onerror=null;this.src='assets/img/gambar-default.png';" />
         <div class="p-6">
             <h3 class="text-xl font-semibold text-blue-600 mb-2">${p.title}</h3>
             <p class="text-gray-600 mb-3">${p.description}</p>
@@ -523,7 +510,7 @@ async function loadCertificates() {
 
       card.innerHTML = `
         <div class="flex items-center justify-between">
-          <h5 class="font-semibold text-gray-800">${cert.title}</h5>
+          <h4 class="font-bold text-gray-800">${cert.title}</h4>
           <span class="text-sm text-gray-500">Berlaku s/d ${cert.expired}</span>
         </div>
         <p class="text-blue-500 text-sm mt-1">${cert.institution}</p>

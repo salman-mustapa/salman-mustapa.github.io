@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Salman Mustapa" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Salman Mustapa">
     <meta
       name="description"
       content="Portfolio Salman Mustapa - Network Engineer & Software Engineer"
@@ -16,26 +16,29 @@
     <meta property="og:title" content="Salman Mustapa - Portfolio & Tech Blog">
     <meta property="og:description" content="Eksplor portofolio, proyek, sertifikat, dan tulisan teknologi oleh Salman Mustapa.">
     <meta property="og:image" content="https://salman-mustapa.github.io/assets/img/preview.png">
+    <meta name="theme-color">
     <meta property="og:url" content="https://salman-mustapa.github.io/">
     <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/png" href="/assets/img/favicon.png">
+
     <title>Salman Mustapa | Portofolio</title>
+    
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <!-- Flowbite CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css"
-      rel="stylesheet"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+
     <!-- Font Awesome for Icons -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-      rel="stylesheet"
-    />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet" />
+
     <!-- Google Fonts (Quicksand) -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+
     <!-- AOS for Animations -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/style.css" />
@@ -53,8 +56,9 @@
   <body>
     <!-- Theme Toggle (Mobile - FAB) -->
     <div class="theme-toggle-mobile fixed bottom-24 right-6 z-50 md:hidden">
-      <button id="theme-toggle-fab" class="bg-blue-600 text-white rounded-full w-14 h-14 flex items-center justify-center">
-        <i class="fas fa-palette text-xl"></i>
+      <button id="theme-toggle-fab" class="bg-blue-600 text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300" aria-haspopup="true" aria-expanded="false" aria-controls="theme-options" aria-label="Opsi tema" title="Opsi tema">
+        <i class="fas fa-palette text-xl" aria-hidden="true"></i>
+        <span class="sr-only">Buka pilihan tema</span>
       </button>
       <div id="theme-options" class="hidden absolute bottom-16 right-0 bg-white/10 backdrop-blur-md rounded-xl p-2 border border-white/20">
         <button id="theme-light-mobile" class="theme-btn-mobile flex items-center p-2 rounded-lg transition-all w-full text-left">
@@ -98,8 +102,9 @@
           
           <!-- Theme Toggle (Desktop) -->
           <div class="relative ml-4">
-            <button id="theme-toggle-desktop" class="text-gray-800 hover:text-blue-500 p-2 rounded-full transition-all">
-              <i class="fas fa-palette"></i>
+            <button id="theme-toggle-desktop" class="text-gray-800 hover:text-blue-500 p-2 rounded-full transition-all" aria-label="Opsi tema" aria-haspopup="true" aria-expanded="false" aria-controls="theme-options-desktop">
+              <i class="fas fa-palette" aria-hidden="true"></i>
+              <span class="sr-only">Buka pilihan tema</span>
             </button>
             <div id="theme-options-desktop" class="hidden absolute top-12 right-0 bg-white/10 backdrop-blur-md rounded-xl p-2 border border-white/20 min-w-[140px]">
               <button id="theme-light" class="theme-btn flex items-center p-2 rounded-lg transition-all w-full text-left">
@@ -438,7 +443,7 @@
         <div id="timeline" class="relative space-y-14 max-w-5xl mx-auto"></div>
 
         <div class="text-center mt-12">
-          <button id="load-more" class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full transition-all duration-300">
+          <button id="load-more" aria-label="Tampilkan lebih banyak" class="px-8 py-3 bg-blue-800 hover:bg-blue-900 text-white font-semibold rounded-full transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-blue-300">
             Tampilkan Lebih Banyak
           </button>
         </div>
