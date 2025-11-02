@@ -4,14 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Salman Mustapa">
-    <meta
-      name="description"
-      content="Portfolio Salman Mustapa - Network Engineer & Software Engineer"
-    />
-    <meta
-      name="keywords"
-      content="Salman Mustapa, Backend Developer, Laravel, Networking, Linux, Bootstrap, MySQL, SysAdmin, Portfolio"
-    />
+    <meta name="description" content="Portfolio Salman Mustapa - Network Engineer & Software Engineer"/>
+    <meta name="keywords" content="Salman Mustapa, Backend Developer, Laravel, Networking, Linux, Bootstrap, MySQL, SysAdmin, Portfolio" />
+    
+    <!-- Tambahkan CSP (Content Security Policy) -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://cdn.tailwindcss.com https://cdn.jsdelivr.net https://unpkg.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com;"> -->
+
+    <!-- Tambahkan meta tags keamanan lainnya -->
+    <!-- <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin"> -->
+    
     <!-- Open Graph (Social Preview) -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Salman Mustapa - Portfolio & Tech Blog">
@@ -28,15 +32,6 @@
 
     <title>Salman Mustapa | Portofolio</title>
     
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com" defer></script>
-    
-    <!-- Flowbite CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet"  media="print" onload="this.media='all'">
-
-    <!-- Font Awesome for Icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"  media="print" onload="this.media='all'">
-
     <!-- Performance hints: preconnect and dns-prefetch -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -46,14 +41,25 @@
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
-    <!-- Google Fonts (Quicksand) -->
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet"  media="print" onload="this.media='all'">
 
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Repair -->
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet"></noscript>
 
-    <!-- AOS for Animations -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"  media="print" onload="this.media='all'">
-    <!-- Custom CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"></noscript>
+
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"></noscript>
+
     <link rel="stylesheet" href="assets/style.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="assets/style.css"></noscript>
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QNV3SL7HLW"></script>
@@ -390,10 +396,9 @@
         </div>
           
       </div>
-    </section>
-    <!-- Certificate Section -->
-    <section id="skills" class="py-16 bg-gray-100">
-      <div class="container mx-auto px-6">
+
+      <!-- Certificate Section -->
+      <div class="container mx-auto px-6 pt-16">
           <h3
           class="section-title text-3xl font-bold text-blue-600 mb-8"
           data-aos="fade-up">
@@ -588,7 +593,7 @@
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js" defer></script>
     <!-- AOS JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js" async></script>
     <script src="assets/script.js" defer></script>
     <script type="application/ld+json">
       {
@@ -599,8 +604,8 @@
         "description": "Eksplor portofolio dan tulisan seputar networking, programming, cyber security, dan open source oleh Salman Mustapa.",
         "author": {
           "@type": "Person",
-          "name": "Salman Mustapa",
-        }
+          "name": "Salman Mustapa"
+        },
         "sameAs": [
           "https://github.com/salman-mustapa",
           "https://id.linkedin.com/in/salman-mustapa-0b4997284/"
